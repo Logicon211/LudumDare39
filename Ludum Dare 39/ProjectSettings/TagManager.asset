@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Rocket
+  - Hat
+  - Bomb
+  - Bullet
+  - Enemy
+  - Scenery
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - Enemy
+  - Bullet (Player)
+  - Bullet (Enemy)
+  - DestoyArea
+  - Scenery
+  - Columns
+  - Ground
+  - Rocket
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3120113235
+    locked: 0
+  - name: Midground
+    uniqueID: 3911159247
+    locked: 0
+  - name: Foreground
+    uniqueID: 1699056959
+    locked: 0
+  - name: Sparks
+    uniqueID: 1125544447
+    locked: 0
+  - name: Bullet
+    uniqueID: 1130225541
+    locked: 0
+  - name: Player
+    uniqueID: 2176416421
+    locked: 0
