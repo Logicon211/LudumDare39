@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Unit : MonoBehaviour {
 
@@ -15,7 +16,10 @@ public class Unit : MonoBehaviour {
 	public int playerHealth = 100;
 	public float playerEnergy = 100;
 
-	public float energyDepletionRate = 0.001f;
+    public Slider energySlider;
+    public Slider healthSlider;
+
+    public float energyDepletionRate = 0.001f;
 
 	public int width = 3;
 	public int height = 9;
@@ -606,6 +610,9 @@ public class Unit : MonoBehaviour {
 		}
 		Debug.Log ("Player health: " + playerHealth);
 
+        //updating UI element for health bar
+        healthSlider.value = playerHealth;
+
 		if (playerHealth <= 0) {
 			//Disable player sprite and scripts. Maybe play an explosion
 			SpriteRenderer renderer = GetComponent<SpriteRenderer>();
@@ -618,7 +625,7 @@ public class Unit : MonoBehaviour {
 
 	public void playerEnergyChange(float energyIn) {
 		playerEnergy += energyIn;
-
+        energySlider.value = playerEnergy;
 		if (playerEnergy <= 0) {
 			//Disable player sprite and scripts. Maybe play an explosion
 
