@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Scenery
   - B.E.A.R.
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Columns
   - Ground
   - Rocket
-  - 
+  - EnemyBullet
   - 
   - 
   - 
