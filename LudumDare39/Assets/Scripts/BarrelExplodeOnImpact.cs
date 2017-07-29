@@ -27,8 +27,7 @@ public class BarrelExplodeOnImpact : MonoBehaviour {
             {
                 projectile.OnActorHit();
 
-                    Instantiate(deathEffect, this.transform.position, Quaternion.identity);
-                    Destroy(this.gameObject);
+                    
                 foreach (GameObject thing in GameObject.FindGameObjectsWithTag("Enemy"))
                 {
 
@@ -48,6 +47,8 @@ public class BarrelExplodeOnImpact : MonoBehaviour {
                         scriptin.damage(damageValue);
                     }
                 }
+                Instantiate(deathEffect, this.transform.position, Quaternion.identity);
+                Destroy(this.gameObject);
 
             }
 
