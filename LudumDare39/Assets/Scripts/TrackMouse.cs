@@ -6,10 +6,11 @@ public class TrackMouse : MonoBehaviour {
 	public GameObject rocket;
 
 	private bool upsideDown = false;
+	private Animator anim;
 
 	// Use this for initialization
 	void Start () {
-	
+		anim = GetComponent<Animator> ();
 	}
 
 	void Update() {
@@ -35,6 +36,9 @@ public class TrackMouse : MonoBehaviour {
 		}
 
 		if(Input.GetMouseButtonDown(0)) {
+
+			anim.SetTrigger ("Shoot");
+
 			GameObject rocketLaunched = null;
 			if(faceRight) {
 				rocketLaunched = Instantiate(rocket, transform.position, actualRotate) as GameObject;
