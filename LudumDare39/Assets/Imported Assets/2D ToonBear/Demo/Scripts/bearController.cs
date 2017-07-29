@@ -23,6 +23,7 @@ public class bearController : MonoBehaviour {
 	public LayerMask whatIsGround;
 	private bool grounded = false;
 
+	private AudioSource AS;
 	private Animator anim;
 	private Rigidbody2D RB;
 
@@ -94,6 +95,7 @@ public class bearController : MonoBehaviour {
 		mPrevInputs = new bool[(int)KeyInput.Count];
 		mPath = new List<Vector2i> ();
 		pathTimer = 0;
+		AS = GetComponent<AudioSource>();
 	}
 
 
@@ -667,7 +669,7 @@ public class bearController : MonoBehaviour {
 				if(bearVitality <0){
 					Destroy (this.gameObject);
 					}
-				//Play bear ow sound
+				AS.Play ();
 			}
 
 		}
