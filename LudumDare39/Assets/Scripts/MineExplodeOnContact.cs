@@ -32,7 +32,8 @@ public class MineExplodeOnContact : MonoBehaviour {
             float currentDist = Vector3.Distance(RB.transform.position, (thing.transform.position));
             if (currentDist < blastRadius)
             {
-
+                IDamagable scriptin = thing.GetComponent<IDamagable>();
+                scriptin.damage(-10);
             }
 
         }

@@ -16,9 +16,6 @@ public class BarrelExplodeOnImpact : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
     void OnCollisionEnter2D(Collision2D col)
     {
 
@@ -37,7 +34,8 @@ public class BarrelExplodeOnImpact : MonoBehaviour {
                     float currentDist = Vector3.Distance(RB.transform.position, (thing.transform.position));
                     if (currentDist < blastRadius)
                     {
-                        
+                        IDamagable scriptin = thing.GetComponent<IDamagable>();
+                        scriptin.damage(-10);
                     }
                     
                 }
@@ -45,7 +43,8 @@ public class BarrelExplodeOnImpact : MonoBehaviour {
                 {
                     if (playerDistance < blastRadius)
                     {
-
+                        IDamagable scriptin = player.GetComponent<IDamagable>();
+                        scriptin.damage(-10);
                     }
                 }
 
