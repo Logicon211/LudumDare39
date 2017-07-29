@@ -12,6 +12,9 @@ TagManager:
   - Scenery
   - B.E.A.R.
   - EnemyBullet
+  - Energy
+  - Health
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -31,7 +34,7 @@ TagManager:
   - Ground
   - Rocket
   - EnemyBullet
-  - 
+  - Pickups
   - 
   - 
   - 
