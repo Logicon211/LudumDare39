@@ -66,7 +66,7 @@ public class MapTile : MonoBehaviour {
 		Destroy (this.gameObject);
 	}
 
-	public void TakeDamage(int damage) {
+	public virtual void TakeDamage(int damage) {
 		HP = HP - damage;
 		if (HP <= 0) {
 			DestroyTile ();

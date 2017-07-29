@@ -13,6 +13,9 @@ public class Unit : MonoBehaviour {
 
 	public int maxJumpHeight = 6;
 	private int playerHealth;
+	public float playerEnergy = 100;
+
+	public float energyDepletionRate = 0.001f;
 
 	public int width = 3;
 	public int height = 9;
@@ -26,6 +29,8 @@ public class Unit : MonoBehaviour {
 	public float groundTimer = 0f;
 
 	public static float MAX_GROUNDED_TIMER = 2f;
+
+	private bool isDead = false;
 
 	//Bot code. May move out of here?
 	public enum BotState
@@ -94,6 +99,9 @@ public class Unit : MonoBehaviour {
 		} else {
 			groundTimer = 0f;
 		}
+
+		//Energy Checks
+		playerEnergyChange(-energyDepletionRate);
 
 		/**********************************************************************************************************************/
 		BotUpdate ();
@@ -597,6 +605,40 @@ public class Unit : MonoBehaviour {
 			//Play ow sound
 		}
 		Debug.Log ("Player health: " + playerHealth);
+
+		if (playerHealth <= 0) {
+			//Disable player sprite and scripts. Maybe play an explosion
+			SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+			renderer.enabled = false;
+			this.isDead = true;
+
+			StartCoroutine("LoseGame");
+		}
+	}
+
+	public void playerEnergyChange(float energyIn) {
+		playerEnergy += energyIn;
+
+		if (playerEnergy <= 0) {
+			//Disable player sprite and scripts. Maybe play an explosion
+
+			//SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+			//renderer.enabled = false;
+			this.isDead = true;
+
+			//Maybe a different message about running out of power?
+			StartCoroutine("LoseGame");
+		}
+	}
+
+	IEnumerator LoseGame() {			
+		yield return new  WaitForSeconds(3);  // or however long you want it to wait
+		Application.LoadLevel("GameOverScreen");
+	}
+
+	IEnumerator WinGame() {			
+		yield return new WaitForSeconds(3);  // or however long you want it to wait
+		Application.LoadLevel("VictoryScreen");
 	}
 
 }

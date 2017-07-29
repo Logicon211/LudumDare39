@@ -146,6 +146,8 @@ MonoBehaviour:
   speed: 10
   jumpSpeed: 20
   maxJumpHeight: 6
+  playerEnergy: 100
+  energyDepletionRate: 0.01
   width: 3
   height: 9
   groundTimer: 0
@@ -393,6 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 110538, guid: 346a9c29ae3d90c438d11e51ccc28c46, type: 2}
   cooldown: 1
+  velocity: 80
   cooldownTimer: 0
 --- !u!120 &120711103034892648
 LineRenderer:

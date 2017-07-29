@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestParticleScene.unity
     guid: 9beed84269545f94eb8018f1ef3b3875
+  - enabled: 1
+    path: Assets/Scenes/GameOverScreen.unity
+    guid: 24969f6a209ffd34d96f73042b6a625d
