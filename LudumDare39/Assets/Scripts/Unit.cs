@@ -15,7 +15,7 @@ public class Unit : MonoBehaviour {
 
 
 	public int width = 3;
-	public int height = 6;
+	public int height = 9;
 
 	private Rigidbody2D RB;
 	private Animator anim;

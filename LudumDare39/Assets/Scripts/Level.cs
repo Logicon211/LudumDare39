@@ -112,7 +112,9 @@ public class Level : MonoBehaviour {
 //				}
 //			}
 
+
 			if (foundClick/* && foundPlayer*/) {
+				//Start is never used
 				Vector2i start = new Vector2i(Convert.ToInt32(playerPosition.x), Convert.ToInt32(playerPosition.y));
 				Vector2i end = new Vector2i(Convert.ToInt32(clickPosition.x), Convert.ToInt32(clickPosition.y));
 				//List<Vector2i> path = mPathFinder.FindPath (start, end, player.GetComponent<Unit>().width, player.GetComponent<Unit>().height, (short)player.GetComponent<Unit>().maxJumpHeight);
