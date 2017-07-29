@@ -11,6 +11,8 @@ TagManager:
   - Enemy
   - Scenery
   - B.E.A.R.
+  - Barrel
+  - Mine
   layers:
   - Default
   - TransparentFX
