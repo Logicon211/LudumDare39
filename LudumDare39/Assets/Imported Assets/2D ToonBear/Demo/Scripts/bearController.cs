@@ -20,11 +20,8 @@ public class bearController : MonoBehaviour {
 	public static Vector3 theScale;
 
 	//Jumping Stuff
-	public Transform groundCheck;
 	public LayerMask whatIsGround;
 	private bool grounded = false;
-	private float groundRadius = 0.15f;
-	private float jumpForce = 14f;
 
 	private Animator anim;
 	private Rigidbody2D RB;
@@ -95,8 +92,8 @@ public class bearController : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		pathTimer -= 10;
-		Debug.Log (pathTimer);
+		pathTimer -= 100;
+		Debug.Log ("GROUNDED:" + grounded);
 		//Jump checks
 		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
 		bool grounded1 = Physics2D.Linecast(transform.position, groundCheck1.position, 1 << LayerMask.NameToLayer("Ground")); 
@@ -135,6 +132,7 @@ public class bearController : MonoBehaviour {
 
 		if (mInputs [(int)KeyInput.Jump] && grounded) {
 			jump = true;
+			Debug.Log (jump);
 		} else if (mInputs [(int)KeyInput.Jump] && !grounded) {
 			continueJumping = true;
 		}
@@ -194,14 +192,8 @@ public class bearController : MonoBehaviour {
 			}
 		}
 		BotUpdate ();
-        moveXInput = Input.GetAxis("Horizontal");
 
-        if ((grounded) && Input.GetButtonDown("Jump"))
-        {
-            anim.SetBool("ground", false);
 
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.y, jumpForce);
-        }
 
 
         
