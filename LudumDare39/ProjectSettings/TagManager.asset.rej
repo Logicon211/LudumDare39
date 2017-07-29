@@ -1,0 +1,10 @@
+diff a/LudumDare39/ProjectSettings/TagManager.asset b/LudumDare39/ProjectSettings/TagManager.asset	(rejected hunks)
+@@ -11,6 +11,8 @@
+   - Enemy
+   - Scenery
+   - B.E.A.R.
++  - Barrel
++  - Mine
+   layers:
+   - Default
+   - TransparentFX

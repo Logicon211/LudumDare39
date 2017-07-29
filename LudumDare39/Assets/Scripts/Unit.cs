@@ -182,6 +182,15 @@ public class Unit : MonoBehaviour {
 		if(col.gameObject.layer == LayerMask.NameToLayer("Ground")) {
 			anim.SetBool("Jumping", false);
 		}
+
+		if (col.gameObject.tag == "EnemyBullet") {
+			IProjectile projectile = (IProjectile)col.gameObject.GetComponent (typeof(IProjectile));
+			if (projectile != null) {
+				playerHealthChange(-projectile.getDamageValue());
+				projectile.OnActorHit ();
+			}
+
+		}
 	}
 
 	void Flip() {

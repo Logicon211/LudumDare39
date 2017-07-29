@@ -4,15 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - EnemyBullet
   - Rocket
-  - Hat
-  - Bomb
-  - Bullet
-  - Enemy
-  - Scenery
-  - B.E.A.R.
-  - Barrel
-  - Mine
   layers:
   - Default
   - TransparentFX
@@ -22,15 +15,15 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - Enemy
-  - Bullet (Player)
-  - Bullet (Enemy)
-  - DestoyArea
-  - Scenery
-  - Columns
-  - Ground
-  - Rocket
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -49,22 +42,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 3120113235
-    locked: 0
-  - name: Midground
-    uniqueID: 3911159247
-    locked: 0
-  - name: Foreground
-    uniqueID: 1699056959
-    locked: 0
-  - name: Sparks
-    uniqueID: 1125544447
-    locked: 0
-  - name: Bullet
-    uniqueID: 1130225541
-    locked: 0
-  - name: Player
-    uniqueID: 2176416421
     locked: 0

@@ -9,18 +9,19 @@ public class TrackMouse : MonoBehaviour {
 	public float velocity = 80f;
 
 	public float cooldownTimer = 0f;
-	private bool onCooldown = false;
+	public bool onCooldown = false;
 
 	private bool upsideDown = false;
 
 	private Animator anim;
-
+	public int weapon;
 	private Transform barrel;
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
 		barrel = transform.Find ("Barrel");
+		weapon = 0;
 	}
 
 	void Update() {
@@ -49,42 +50,154 @@ public class TrackMouse : MonoBehaviour {
 			cooldownTimer += Time.fixedDeltaTime;
 			if (cooldownTimer > cooldown) {
 				onCooldown = false;
+				cooldownTimer = 0f;
 			}
 		} else {
 			cooldownTimer = 0f;
 		}
 
 
-		if(Input.GetMouseButtonDown(0) && !onCooldown) {
+		if(Input.GetMouseButton(0) && !onCooldown) {
 
-			anim.SetTrigger ("Shoot");
 
-			GameObject projectileLaunched = null;
-			GameObject projectileLaunched2 = null;
-			GameObject projectileLaunched3 = null;
+			if (weapon == 0) {
+				anim.SetTrigger ("Shoot");
 
-			if(faceRight) {
-				projectileLaunched = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
-				projectileLaunched2 = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
-				projectileLaunched3 = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
-			} else {
-				Vector3 posit = transform.localPosition;
-				posit = new Vector3(-posit.x,posit.y,posit.z);
-				projectileLaunched = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
-				projectileLaunched2 = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
-				projectileLaunched3 = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
+				GameObject projectileLaunched = null;
+				GameObject projectileLaunched2 = null;
+				GameObject projectileLaunched3 = null;
+
+				if (faceRight) {
+					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				} else {
+					Vector3 posit = transform.localPosition;
+					posit = new Vector3 (-posit.x, posit.y, posit.z);
+					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+
+				}
+				projectileLaunched.transform.Rotate (0, 0, Random.Range (-15, 15));
+				projectileLaunched2.transform.Rotate (0, 0, Random.Range (-15, 15));
+				projectileLaunched3.transform.Rotate (0, 0, Random.Range (-15, 15));
+				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * (velocity+ Random.Range(-2,2));
+				projectileLaunched2.GetComponent<Rigidbody2D> ().velocity = projectileLaunched2.transform.right * (velocity+ Random.Range(-2,2));
+				projectileLaunched3.GetComponent<Rigidbody2D> ().velocity = projectileLaunched3.transform.right * (velocity+ Random.Range(-2,2));
+				onCooldown = true;
+				cooldown = 1f;
+
+			} else if (weapon == 1) {
+
+				GameObject projectileLaunched = null;
+			
+				if (faceRight) {
+					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+
+				} else {
+					Vector3 posit = transform.localPosition;
+					posit = new Vector3 (-posit.x, posit.y, posit.z);
+					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				}
+
+				projectileLaunched.transform.Rotate (0, 0, Random.Range (-5, 5));
+				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * velocity;
+				onCooldown = true;
+				cooldown = 0.25f;
+			}
+
+			else if (weapon == 2) {
+				anim.SetTrigger ("Shoot");
+
+				GameObject projectileLaunched = null;
+				GameObject projectileLaunched2 = null;
+				GameObject projectileLaunched3 = null;
+				GameObject projectileLaunched4 = null;
+				GameObject projectileLaunched5 = null;
+				GameObject projectileLaunched6 = null;
+				GameObject projectileLaunched7 = null;
+
+
+				if (faceRight) {
+					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched4 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched5 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched6 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched7 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+
+				} else {
+					Vector3 posit = transform.localPosition;
+					posit = new Vector3 (-posit.x, posit.y, posit.z);
+					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched4 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched5 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched6 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched7 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+
+				}
+				projectileLaunched.transform.Rotate (0, 0, Random.Range (-15, 15));
+				projectileLaunched2.transform.Rotate (0, 0, Random.Range (-15, 15));
+				projectileLaunched3.transform.Rotate (0, 0, Random.Range (-15, 15));
+				projectileLaunched4.transform.Rotate (0, 0, Random.Range (-15, 15));
+				projectileLaunched5.transform.Rotate (0, 0, Random.Range (-15, 15));
+				projectileLaunched6.transform.Rotate (0, 0, Random.Range (-15, 15));
+				projectileLaunched7.transform.Rotate (0, 0, Random.Range (-15, 15));
+				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * (velocity + Random.Range(-2,2));
+				projectileLaunched2.GetComponent<Rigidbody2D> ().velocity = projectileLaunched2.transform.right * (velocity+ Random.Range(-2,2));
+				projectileLaunched3.GetComponent<Rigidbody2D> ().velocity = projectileLaunched3.transform.right * (velocity+ Random.Range(-2,2));
+				projectileLaunched4.GetComponent<Rigidbody2D> ().velocity = projectileLaunched4.transform.right * (velocity+ Random.Range(-2,2));
+				projectileLaunched5.GetComponent<Rigidbody2D> ().velocity = projectileLaunched5.transform.right * (velocity+ Random.Range(-2,2));
+				projectileLaunched6.GetComponent<Rigidbody2D> ().velocity = projectileLaunched6.transform.right * (velocity+ Random.Range(-2,2));
+				projectileLaunched7.GetComponent<Rigidbody2D> ().velocity = projectileLaunched7.transform.right * (velocity+ Random.Range(-2,2));
+				onCooldown = true;
+				cooldown = 1f;
 
 			}
-			projectileLaunched.transform.Rotate (0,0,Random.Range (-15, 15));
-			Debug.Log (Random.Range (-30, 30));
-			projectileLaunched2.transform.Rotate (0,0,Random.Range (-15, 15));
-			Debug.Log (Random.Range (-30, 30));
-			projectileLaunched3.transform.Rotate (0,0,Random.Range (-15, 15));
-			Debug.Log (Random.Range (-30, 30));
-			projectileLaunched.GetComponent<Rigidbody2D>().velocity = projectileLaunched.transform.right * velocity;
-			projectileLaunched2.GetComponent<Rigidbody2D>().velocity = projectileLaunched2.transform.right * velocity;
-			projectileLaunched3.GetComponent<Rigidbody2D>().velocity = projectileLaunched3.transform.right * velocity;
-			onCooldown = true;
+
+			else if (weapon == 3) {
+
+				GameObject projectileLaunched = null;
+
+				if (faceRight) {
+					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+
+				} else {
+					Vector3 posit = transform.localPosition;
+					posit = new Vector3 (-posit.x, posit.y, posit.z);
+					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				}
+
+				projectileLaunched.transform.Rotate (0, 0, Random.Range (-5, 5));
+				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * velocity;
+				onCooldown = true;
+				cooldown = 0.1f;
+			}
+
+			else if (weapon == 4) {
+
+				GameObject projectileLaunched = null;
+
+				if (faceRight) {
+					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+
+				} else {
+					Vector3 posit = transform.localPosition;
+					posit = new Vector3 (-posit.x, posit.y, posit.z);
+					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				}
+
+				projectileLaunched.transform.Rotate (0, 0, Random.Range (-1, 1));
+				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * velocity;
+				onCooldown = true;
+				cooldown = 0.5f;
+			}
+
+
 		}
 	}
 

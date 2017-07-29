@@ -308,6 +308,7 @@ MonoBehaviour:
   jump: 0
   speed: 20
   jumpSpeed: 20
+  bearVitality: 7
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4294964735
@@ -316,6 +317,7 @@ MonoBehaviour:
   maxJumpHeight: 20
   width: 6
   height: 10
+  deathEffect: {fileID: 156964, guid: 15ff87b027731ae4cbf07bb092fba046, type: 2}
 --- !u!120 &120046030069180642
 LineRenderer:
   m_ObjectHideFlags: 1
