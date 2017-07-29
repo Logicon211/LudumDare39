@@ -11,7 +11,7 @@ public class bearController : MonoBehaviour {
 
 	public float speed = 10f;
 	public float jumpSpeed = 40f;
-
+	private int bearVitality;
 	//private float maxVertHSpeed = 20f;
 	private bool facingRight = true;
 	private float moveXInput;
@@ -78,6 +78,7 @@ public class bearController : MonoBehaviour {
 	}
 
 	void Start () {
+		bearVitality = 2;
 		player = GameObject.FindGameObjectWithTag ("Player");
 		lineRenderer = GetComponent<LineRenderer> ();
 		punchCooldown = 0;
@@ -204,6 +205,8 @@ public class bearController : MonoBehaviour {
 			}
 		}
 		BotUpdate ();
+
+
 
 
 
@@ -652,6 +655,30 @@ public class bearController : MonoBehaviour {
 		}
 	}
 
+	void OnCollisionEnter2D(Collision2D col) {
+		//This isn't calling for some reason
+		//Test for projectile collision
 
+		if (col.gameObject.tag == "Rocket") {
+			IProjectile projectile = (IProjectile)col.gameObject.GetComponent (typeof(IProjectile));
+			if (projectile != null) {
+				projectile.OnActorHit ();
+				bearVitality--;
+				if(bearVitality <0){
+					Destroy (this.gameObject);
+					}
+				//Play bear ow sound
+			}
+
+		}
+		//Check for player collision, blow him up and he loses or whatever
+		//		if (col.gameObject.tag == "Player")
+		//		{
+		//			ship = col.gameObject.GetComponent<Ship>();
+		//			ship.takeHit();
+		//			kill();
+		//
+		//		}
+	}
 
 }

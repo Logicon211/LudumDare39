@@ -31,6 +31,10 @@ public class Rocket : MonoBehaviour, IProjectile {
 	}
 
 	public void OnActorHit() {
+		Instantiate (explosionEffect, this.transform.position, Quaternion.identity);
+		//Destory the projectile
+		Destroy (this.gameObject);
+
 		// DO damage to them or something
 	}
 

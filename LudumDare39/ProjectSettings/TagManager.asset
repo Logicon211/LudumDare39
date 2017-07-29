@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Enemy
   - Scenery
+  - B.E.A.R.
   layers:
   - Default
   - TransparentFX
