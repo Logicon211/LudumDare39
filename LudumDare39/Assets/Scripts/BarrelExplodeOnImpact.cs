@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BarrelExplodeOnImpact : MonoBehaviour {
-
+    private GameObject player;
     public GameObject deathEffect;
+    private Rigidbody2D RB;
+    public float blastRadius = 8.0f;
+    public bool hurtsPlayer = false;
+    public int damageValue = -10;
 
     // Use this for initialization
     void Start () {
-		
-	}
+        RB = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
     void OnCollisionEnter2D(Collision2D col)
     {
-        //This isn't calling for some reason
-        //Test for projectile collision
 
         if (col.gameObject.tag == "Rocket")
         {
@@ -29,7 +29,26 @@ public class BarrelExplodeOnImpact : MonoBehaviour {
 
                     Instantiate(deathEffect, this.transform.position, Quaternion.identity);
                     Destroy(this.gameObject);
-              
+                foreach (GameObject thing in GameObject.FindGameObjectsWithTag("Enemy"))
+                {
+
+                    float currentDist = Vector3.Distance(RB.transform.position, (thing.transform.position));
+                    if (currentDist < blastRadius)
+                    {
+                        IDamagable scriptin = thing.GetComponent<IDamagable>();
+                        scriptin.damage(damageValue);
+                    }
+                    
+                }
+                float playerDistance = Vector3.Distance(RB.transform.position, (player.transform.position));
+                {
+                    if (playerDistance < blastRadius)
+                    {
+                        IDamagable scriptin = player.GetComponent<IDamagable>();
+                        scriptin.damage(damageValue);
+                    }
+                }
+
             }
 
         }

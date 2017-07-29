@@ -7,7 +7,8 @@ public class MineExplodeOnContact : MonoBehaviour {
     private float playerDist;
     private Rigidbody2D RB;
     public GameObject deathEffect;
-    public float triggerRadius = 3.0f;
+    public float blastRadius = 6.0f;
+    public int damageValue = 10;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -16,14 +17,32 @@ public class MineExplodeOnContact : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
         playerDist = Vector3.Distance(RB.transform.position, (player.transform.position));
-        Debug.Log(playerDist);
-        if (playerDist < triggerRadius)
+        if (playerDist < blastRadius)
         {
-            Instantiate(deathEffect, this.transform.position, Quaternion.identity);
-            Unit scriptin = player.GetComponent<Unit>();
-            scriptin.playerHealthChange(-10);
-            Destroy(this.gameObject);
+            
         }
+        foreach (GameObject thing in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+
+            float currentDist = Vector3.Distance(RB.transform.position, (thing.transform.position));
+            if (currentDist < blastRadius)
+            {
+                IDamagable scriptin = thing.GetComponent<IDamagable>();
+                scriptin.damage(damageValue);
+            }
+
+        }
+        Instantiate(deathEffect, this.transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
+
+
+
+
     }
 }
