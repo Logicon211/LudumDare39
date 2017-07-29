@@ -6,7 +6,7 @@ using System;
 //This Script is intended for demoing and testing animations only.
 
 
-public class bearController : MonoBehaviour {
+public class bearController : MonoBehaviour, IDamagable {
 	public bool jump = false;
 
 	public float speed = 10f;
@@ -669,11 +669,8 @@ public class bearController : MonoBehaviour {
 			IProjectile projectile = (IProjectile)col.gameObject.GetComponent (typeof(IProjectile));
 			if (projectile != null) {
 				projectile.OnActorHit ();
-				bearVitality -= projectile.getDamageValue ();
-				if(bearVitality <0){
-					Instantiate (deathEffect, this.transform.position, Quaternion.identity);
-					Destroy (this.gameObject);
-				}
+				damage (projectile.getDamageValue ());
+				//bearVitality -= projectile.getDamageValue ();
 				AS.Play ();
 			}
 
@@ -686,6 +683,15 @@ public class bearController : MonoBehaviour {
 		//			kill();
 		//
 		//		}
+	}
+
+	public void damage(int damage) {
+		bearVitality -= damage;
+		if(bearVitality < 0){
+			Instantiate (deathEffect, this.transform.position, Quaternion.identity);
+			Destroy (this.gameObject);
+		}
+		AS.Play ();
 	}
 
 }

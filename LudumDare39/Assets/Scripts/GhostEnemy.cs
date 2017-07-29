@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostEnemy : MonoBehaviour {
+public class GhostEnemy : MonoBehaviour, IDamagable {
 
 	private GameObject player;
 	private Rigidbody2D RB;
@@ -108,11 +108,7 @@ public class GhostEnemy : MonoBehaviour {
 			IProjectile projectile = (IProjectile)col.gameObject.GetComponent (typeof(IProjectile));
 			if (projectile != null) {
 				projectile.OnActorHit ();
-				health -= projectile.getDamageValue ();
-				if(health < 0){
-					Instantiate (deathEffect, this.transform.position, Quaternion.identity);
-					Destroy (this.gameObject);
-				}
+				damage (projectile.getDamageValue ());
 
 				//AS.Play ();
 			}
@@ -126,5 +122,14 @@ public class GhostEnemy : MonoBehaviour {
 		//			kill();
 		//
 		//		}
+	}
+
+	public void damage(int damage) {
+		health -= damage;
+		if(health < 0){
+			Instantiate (deathEffect, this.transform.position, Quaternion.identity);
+			Destroy (this.gameObject);
+		}
+		//AS.Play ();
 	}
 }
