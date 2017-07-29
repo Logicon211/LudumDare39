@@ -672,15 +672,7 @@ public class bearController : MonoBehaviour, IDamagable {
 				projectile.OnActorHit ();
 				damage (projectile.getDamageValue ());
 				//bearVitality -= projectile.getDamageValue ();
-					float deathSpawn = UnityEngine.Random.Range (0, 10);
 
-					if (deathSpawn < 1) {
-						Debug.Log ("SPAWN HEALTH");
-						Instantiate (HealthPickup, this.transform.position, Quaternion.identity);
-					} else if (deathSpawn < 2) {
-						Instantiate (EnergyPickup, this.transform.position, Quaternion.identity);
-						Debug.Log ("SPAWN ENERGY");
-					}
 
 
 
@@ -702,9 +694,17 @@ public class bearController : MonoBehaviour, IDamagable {
 		bearVitality -= damage;
 		if(bearVitality < 0){
 			Instantiate (deathEffect, this.transform.position, Quaternion.identity);
+			float deathSpawn = UnityEngine.Random.Range (0, 15);
+
+			if (deathSpawn < 1) {
+				Debug.Log ("SPAWN HEALTH");
+				Instantiate (HealthPickup, this.transform.position, Quaternion.identity);
+			} else if (deathSpawn < 2) {
+				Instantiate (EnergyPickup, this.transform.position, Quaternion.identity);
+				Debug.Log ("SPAWN ENERGY");
+			}
 			Destroy (this.gameObject);
 		}
-		AS.Play ();
 	}
 
 }
