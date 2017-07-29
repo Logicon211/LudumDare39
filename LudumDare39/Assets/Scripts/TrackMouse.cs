@@ -60,14 +60,30 @@ public class TrackMouse : MonoBehaviour {
 			anim.SetTrigger ("Shoot");
 
 			GameObject projectileLaunched = null;
+			GameObject projectileLaunched2 = null;
+			GameObject projectileLaunched3 = null;
+
 			if(faceRight) {
 				projectileLaunched = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched2 = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched3 = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
 			} else {
 				Vector3 posit = transform.localPosition;
 				posit = new Vector3(-posit.x,posit.y,posit.z);
 				projectileLaunched = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched2 = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched3 = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
+
 			}
+			projectileLaunched.transform.Rotate (0,0,Random.Range (-15, 15));
+			Debug.Log (Random.Range (-30, 30));
+			projectileLaunched2.transform.Rotate (0,0,Random.Range (-15, 15));
+			Debug.Log (Random.Range (-30, 30));
+			projectileLaunched3.transform.Rotate (0,0,Random.Range (-15, 15));
+			Debug.Log (Random.Range (-30, 30));
 			projectileLaunched.GetComponent<Rigidbody2D>().velocity = projectileLaunched.transform.right * velocity;
+			projectileLaunched2.GetComponent<Rigidbody2D>().velocity = projectileLaunched2.transform.right * velocity;
+			projectileLaunched3.GetComponent<Rigidbody2D>().velocity = projectileLaunched3.transform.right * velocity;
 			onCooldown = true;
 		}
 	}
