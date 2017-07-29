@@ -6,15 +6,17 @@ public class bullet : MonoBehaviour, IProjectile {
 	int damageToTile = 1;
 	int damageToEnemies = 1;
 	int damageToPlayer = 1;
-
+	Renderer VisibleChecker;
 	// Use this for initialization
 	void Start () {
-	
+		VisibleChecker= GetComponent<Renderer> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (!VisibleChecker.isVisible) {
+			Destroy (this.gameObject);
+		}
 	}
 
 	public int getDamageValue() {

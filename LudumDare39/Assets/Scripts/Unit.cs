@@ -610,6 +610,10 @@ public class Unit : MonoBehaviour, IDamagable {
 	public void playerHealthChange(int healthIn){
 		if (healthIn > 0) {
 			//heal
+			playerHealth+=healthIn;
+			if (playerHealth > 100) {
+				playerHealth = 100;
+			}
 		}
 
 		else{
@@ -638,6 +642,10 @@ public class Unit : MonoBehaviour, IDamagable {
 
 	public void playerEnergyChange(float energyIn) {
 		playerEnergy += energyIn;
+		if (playerEnergy > 100) {
+			playerEnergy = 100f;
+		}
+
         energySlider.value = playerEnergy;
 		if (playerEnergy <= 0) {
 			//Disable player sprite and scripts. Maybe play an explosion

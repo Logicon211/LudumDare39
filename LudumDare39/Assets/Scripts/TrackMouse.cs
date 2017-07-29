@@ -216,4 +216,8 @@ public class TrackMouse : MonoBehaviour {
 		theScale.y *= -1;
 		transform.localScale = theScale;
 	}
+
+	public void upgradeWeapon(){
+		weapon++;
+	}
 }

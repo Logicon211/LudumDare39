@@ -16,6 +16,8 @@ public class bearController : MonoBehaviour, IDamagable {
 	private bool facingRight = true;
 	private float moveXInput;
 
+	public GameObject HealthPickup;
+	public GameObject EnergyPickup;
     //Used for flipping Character Direction
 	public static Vector3 theScale;
 
@@ -41,7 +43,6 @@ public class bearController : MonoBehaviour, IDamagable {
 	public float maxDistance = 100f;
 
 	public GameObject deathEffect;
-
 	private GameObject player;
 
 	public enum BotState
@@ -671,6 +672,18 @@ public class bearController : MonoBehaviour, IDamagable {
 				projectile.OnActorHit ();
 				damage (projectile.getDamageValue ());
 				//bearVitality -= projectile.getDamageValue ();
+					float deathSpawn = UnityEngine.Random.Range (0, 10);
+
+					if (deathSpawn < 1) {
+						Debug.Log ("SPAWN HEALTH");
+						Instantiate (HealthPickup, this.transform.position, Quaternion.identity);
+					} else if (deathSpawn < 2) {
+						Instantiate (EnergyPickup, this.transform.position, Quaternion.identity);
+						Debug.Log ("SPAWN ENERGY");
+					}
+
+
+
 				AS.Play ();
 			}
 
