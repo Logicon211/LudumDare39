@@ -16,5 +16,6 @@ public class IndistructableTile : MapTile {
 
 	public override void TakeDamage(int damage) {
 		//Don't take damage
+		int test = 2;
 	}
 }

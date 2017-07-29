@@ -17,8 +17,13 @@ public class bullet : MonoBehaviour, IProjectile {
 	
 	}
 
+	public int getDamageValue() {
+		return damageToEnemies;
+	}
+
 	public void OnActorHit() {
-		// DO damage to them or something
+		//Destory the projectile
+		Destroy (this.gameObject);
 	}
 
 	void OnCollisionEnter2D (Collision2D col) 

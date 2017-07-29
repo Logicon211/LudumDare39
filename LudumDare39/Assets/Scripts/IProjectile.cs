@@ -5,6 +5,7 @@ public interface IProjectile
 {
 	void OnMapTileHit (MapTile mapTile);
 	void OnActorHit();
+	int getDamageValue();
 }
 
 

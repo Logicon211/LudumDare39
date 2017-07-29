@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour {
 	public float jumpSpeed = 40f;
 
 	public int maxJumpHeight = 6;
-	private int playerHealth;
+	public int playerHealth = 100;
 	public float playerEnergy = 100;
 
 	public float energyDepletionRate = 0.001f;

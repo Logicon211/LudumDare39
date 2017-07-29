@@ -17,6 +17,10 @@ public class Rocket : MonoBehaviour, IProjectile {
 
 	}
 
+	public int getDamageValue() {
+		return damage;
+	}
+
 	public void OnMapTileHit (MapTile mapTile) {
 		Level level = mapTile.level;
 		//Start destroying a radius

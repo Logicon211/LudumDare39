@@ -38,6 +38,8 @@ public class bearController : MonoBehaviour {
 	public int width = 3;
 	public int height = 6;
 
+	public GameObject deathEffect;
+
 	private GameObject player;
 
 	public enum BotState
@@ -665,10 +667,11 @@ public class bearController : MonoBehaviour {
 			IProjectile projectile = (IProjectile)col.gameObject.GetComponent (typeof(IProjectile));
 			if (projectile != null) {
 				projectile.OnActorHit ();
-				bearVitality--;
+				bearVitality -= projectile.getDamageValue ();
 				if(bearVitality <0){
+					Instantiate (deathEffect, this.transform.position, Quaternion.identity);
 					Destroy (this.gameObject);
-					}
+				}
 				AS.Play ();
 			}
 
