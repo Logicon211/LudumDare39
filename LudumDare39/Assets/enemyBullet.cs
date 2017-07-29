@@ -54,7 +54,7 @@ public class enemyBullet : MonoBehaviour, IProjectile {
 
 	public void DestroyMapTileArea(int x, int y, Level level, int radius) {
 		if (level.mapTiles[x,y] != null) {
-			level.mapTiles[x,y].DestroyTile ();
+			level.mapTiles[x,y].DestroyTile (false);
 		}
 		if (radius > 0) {
 			if (y > 0) {
@@ -79,7 +79,7 @@ public class enemyBullet : MonoBehaviour, IProjectile {
 
 		if (radius == 0) {
 			if (level.mapTiles [centerX, centerY] != null) {
-				level.mapTiles [centerX, centerY].DestroyTile ();
+				level.mapTiles [centerX, centerY].DestroyTile (false);
 			}
 			return;
 		}
@@ -95,42 +95,42 @@ public class enemyBullet : MonoBehaviour, IProjectile {
 
 			if ((centerX + x < level.mapTiles.GetLength (0) - 1) && (centerY + y < level.mapTiles.GetLength (1) - 1)) {
 				if (level.mapTiles[centerX + x,centerY + y] != null) {
-					level.mapTiles[centerX + x,centerY + y].DestroyTile ();
+					level.mapTiles[centerX + x,centerY + y].DestroyTile (false);
 				}
 			}
 			if ((centerX + x < level.mapTiles.GetLength (0) - 1) && (centerY - y > 0)) {
 				if (level.mapTiles[centerX + x,centerY - y] != null) {
-					level.mapTiles[centerX + x,centerY - y].DestroyTile ();
+					level.mapTiles[centerX + x,centerY - y].DestroyTile (false);
 				}
 			}
 			if ((centerX - x > 0) && (centerY + y < level.mapTiles.GetLength (1) - 1)) {
 				if (level.mapTiles[centerX - x,centerY + y] != null) {
-					level.mapTiles[centerX - x,centerY + y].DestroyTile ();
+					level.mapTiles[centerX - x,centerY + y].DestroyTile (false);
 				}
 			}
 			if ((centerX - x > 0) && (centerY - y > 0)) {
 				if (level.mapTiles[centerX - x,centerY - y] != null) {
-					level.mapTiles[centerX - x,centerY - y].DestroyTile ();
+					level.mapTiles[centerX - x,centerY - y].DestroyTile (false);
 				}
 			}
 			if ((centerX + y < level.mapTiles.GetLength (0) - 1) && (centerY + x < level.mapTiles.GetLength (1) - 1)) {
 				if (level.mapTiles[centerX + y,centerY + x] != null) {
-					level.mapTiles[centerX + y,centerY + x].DestroyTile ();
+					level.mapTiles[centerX + y,centerY + x].DestroyTile (false);
 				}
 			}
 			if ((centerX + y < level.mapTiles.GetLength (0) - 1) && (centerY - x > 0)) {
 				if (level.mapTiles[centerX + y,centerY - x] != null) {
-					level.mapTiles[centerX + y,centerY - x].DestroyTile ();
+					level.mapTiles[centerX + y,centerY - x].DestroyTile (false);
 				}
 			}
 			if ((centerX - y > 0) && (centerY + x < level.mapTiles.GetLength (1) - 1)) {
 				if (level.mapTiles[centerX - y,centerY + x] != null) {
-					level.mapTiles[centerX - y,centerY + x].DestroyTile ();
+					level.mapTiles[centerX - y,centerY + x].DestroyTile (false);
 				}
 			}
 			if ((centerX - y > 0) && (centerY - x > 0)) {
 				if (level.mapTiles[centerX - y,centerY - x] != null) {
-					level.mapTiles[centerX - y,centerY - x].DestroyTile ();
+					level.mapTiles[centerX - y,centerY - x].DestroyTile (false);
 				}
 			}
 

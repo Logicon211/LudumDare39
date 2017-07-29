@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class Unit : MonoBehaviour {
+public class Unit : MonoBehaviour, IDamagable {
 
 	[HideInInspector]
 	public bool jump = false;				// Condition for whether the player should jump.
@@ -630,6 +630,10 @@ public class Unit : MonoBehaviour {
 
 			StartCoroutine("LoseGame");
 		}
+	}
+
+	public void damage(int damage) {
+		playerHealthChange (-damage);
 	}
 
 	public void playerEnergyChange(float energyIn) {
