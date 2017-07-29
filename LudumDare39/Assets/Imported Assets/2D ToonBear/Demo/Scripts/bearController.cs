@@ -11,7 +11,7 @@ public class bearController : MonoBehaviour {
 
 	public float speed = 10f;
 	public float jumpSpeed = 40f;
-	private int bearVitality;
+	public int bearVitality;
 	//private float maxVertHSpeed = 20f;
 	private bool facingRight = true;
 	private float moveXInput;
@@ -81,7 +81,6 @@ public class bearController : MonoBehaviour {
 	}
 
 	void Start () {
-		bearVitality = 2;
 		player = GameObject.FindGameObjectWithTag ("Player");
 		lineRenderer = GetComponent<LineRenderer> ();
 		punchCooldown = 0;

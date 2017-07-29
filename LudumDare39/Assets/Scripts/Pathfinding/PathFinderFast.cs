@@ -112,7 +112,7 @@ namespace Algorithms
 		
 		public Level mLevel;
 
-		private int numberOfSpaceCorrection = 5;
+		private int numberOfSpaceCorrection = 20;
         #endregion
 		
         #region Constructors

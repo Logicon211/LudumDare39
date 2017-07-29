@@ -308,6 +308,7 @@ MonoBehaviour:
   jump: 0
   speed: 20
   jumpSpeed: 20
+  bearVitality: 4
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4294964735
