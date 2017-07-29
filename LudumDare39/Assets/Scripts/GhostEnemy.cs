@@ -12,7 +12,7 @@ public class GhostEnemy : MonoBehaviour, IDamagable {
 	public int health = 3;
 	public float projectileSpeed = 20f;
 
-	public float maxDistance = 100f;
+	public float maxDistance = 150f;
 
 	public float attackCooldown = 3f;
 	public float attackTimer = 0f;
