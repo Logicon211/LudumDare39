@@ -8,6 +8,7 @@ public class BarrelExplodeOnImpact : MonoBehaviour {
     private Rigidbody2D RB;
     public float blastRadius = 8.0f;
     public bool hurtsPlayer = false;
+    public int damageValue = -10;
 
     // Use this for initialization
     void Start () {
@@ -35,7 +36,7 @@ public class BarrelExplodeOnImpact : MonoBehaviour {
                     if (currentDist < blastRadius)
                     {
                         IDamagable scriptin = thing.GetComponent<IDamagable>();
-                        scriptin.damage(-10);
+                        scriptin.damage(damageValue);
                     }
                     
                 }
@@ -44,7 +45,7 @@ public class BarrelExplodeOnImpact : MonoBehaviour {
                     if (playerDistance < blastRadius)
                     {
                         IDamagable scriptin = player.GetComponent<IDamagable>();
-                        scriptin.damage(-10);
+                        scriptin.damage(damageValue);
                     }
                 }
 

@@ -8,6 +8,7 @@ public class MineExplodeOnContact : MonoBehaviour {
     private Rigidbody2D RB;
     public GameObject deathEffect;
     public float blastRadius = 6.0f;
+    public int damageValue = 10;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -33,7 +34,7 @@ public class MineExplodeOnContact : MonoBehaviour {
             if (currentDist < blastRadius)
             {
                 IDamagable scriptin = thing.GetComponent<IDamagable>();
-                scriptin.damage(-10);
+                scriptin.damage(damageValue);
             }
 
         }
