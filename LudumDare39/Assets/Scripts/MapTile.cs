@@ -60,16 +60,19 @@ public class MapTile : MonoBehaviour {
 //		}
 	}
 
-	public void DestroyTile() {
+	public void DestroyTile(bool refreshCollider) {
 		//remove itself from the maptile array
 		this.level.mapTiles [x, y] = null;
+		if (refreshCollider) {
+			this.level.refreshCollidersOnOuterTiles ();
+		}
 		Destroy (this.gameObject);
 	}
 
 	public virtual void TakeDamage(int damage) {
 		HP = HP - damage;
 		if (HP <= 0) {
-			DestroyTile ();
+			DestroyTile (true);
 		} else {
 			float healthPercentage = ((float)HP / (float)maxHP) * 100;
 			if (healthPercentage > 66) {

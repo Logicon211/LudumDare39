@@ -38,6 +38,8 @@ public class bearController : MonoBehaviour {
 	public int width = 3;
 	public int height = 6;
 
+	public float maxDistance = 100f;
+
 	public GameObject deathEffect;
 
 	private GameObject player;
@@ -195,16 +197,17 @@ public class bearController : MonoBehaviour {
 	void Update()
 	{
 		if (grounded) {
-			playerDist= Vector3.Distance(RB.transform.position, (player.transform.position));
-			if (playerDist < 7 && punchCooldown < 0) {
-				if (mCurrentBotState != BotState.Punch) {
-					ChangeState (BotState.Punch);
+			playerDist = Vector3.Distance (RB.transform.position, (player.transform.position));
+			if (playerDist <= maxDistance) {
+				if (playerDist < 9 && punchCooldown < 0) {
+					if (mCurrentBotState != BotState.Punch) {
+						ChangeState (BotState.Punch);
+					}
+				} else if (pathTimer < 0 && grounded) {
+					Debug.Log ("Running Moveto");
+					MoveTo (new Vector2i (((int)(player.transform.position.x)), ((int)(player.transform.position.y)) - 2));
+					pathTimer = 10;
 				}
-			}
-
-			else if (pathTimer < 0) {
-				MoveTo (new Vector2i (((int)(player.transform.position.x)), ((int)(player.transform.position.y))));
-				pathTimer = 10;
 			}
 		}
 		BotUpdate ();
@@ -280,10 +283,8 @@ public class bearController : MonoBehaviour {
 				punchCooldown = 50;
 
 				Unit scriptin = player.GetComponent<Unit>();
-				Debug.Log (scriptin);
 				scriptin.playerHealthChange (-1);
 			}
-			Debug.Log ("punchstate");
 			break;
 
 		case BotState.MoveTo:
@@ -599,7 +600,9 @@ public class bearController : MonoBehaviour {
 
 	public bool ReachedNodeOnYAxis(Vector2 pathPosition, Vector2 prevDest, Vector2 currentDest)
 	{
-		return (prevDest.y <= currentDest.y && pathPosition.y >= currentDest.y)
+		//Made a tweak to have them keep moving past jumps. Might fuck shit up
+		return (pathPosition.y > currentDest.y)
+			|| (prevDest.y <= currentDest.y && pathPosition.y >= currentDest.y)
 			|| (prevDest.y >= currentDest.y && pathPosition.y <= currentDest.y)
 			|| (Mathf.Abs(pathPosition.y - currentDest.y) <= Constants.cBotMaxPositionError);
 	}

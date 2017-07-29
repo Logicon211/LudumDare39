@@ -41,7 +41,7 @@ public class bullet : MonoBehaviour, IProjectile {
 		level.mapTiles [mapTile.x, mapTile.y].TakeDamage (damageToTile);
 
 		//refresh colliders this is probably to slow to put in every hit
-		level.refreshCollidersOnOuterTiles();
+		//level.refreshCollidersOnOuterTiles();
 
 		//Destory the projectile
 		Destroy (this.gameObject);
