@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour {
 	public float jumpSpeed = 40f;
 
 	public int maxJumpHeight = 6;
-
+	private int playerHealth;
 
 	public int width = 3;
 	public int height = 9;
@@ -585,4 +585,18 @@ public class Unit : MonoBehaviour {
 			lineRenderer.enabled = false;
 		}
 	}
+
+	public void playerHealthChange(int healthIn){
+		if (healthIn > 0) {
+			//heal
+		}
+
+		else{
+			//hurt
+			playerHealth+=healthIn;
+			//Play ow sound
+		}
+		Debug.Log ("Player health: " + playerHealth);
+	}
+
 }

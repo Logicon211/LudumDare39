@@ -37,10 +37,13 @@ public class bearController : MonoBehaviour {
 	public int width = 3;
 	public int height = 6;
 
+	private GameObject player;
+
 	public enum BotState
 	{
 		None = 0,
 		MoveTo,
+		Punch
 	}
 
 	private BotState mCurrentBotState;
@@ -64,6 +67,8 @@ public class bearController : MonoBehaviour {
 	private int mStuckFrames;
 	public const int cMaxStuckFrames = 20;
 	private LineRenderer lineRenderer;
+	private float playerDist;
+	private float punchCooldown;
 
 	// Use this for initialization
 	void Awake ()
@@ -73,8 +78,9 @@ public class bearController : MonoBehaviour {
 	}
 
 	void Start () {
+		player = GameObject.FindGameObjectWithTag ("Player");
 		lineRenderer = GetComponent<LineRenderer> ();
-
+		punchCooldown = 0;
 		mLevel = Level.getLevel ();
 		RB = GetComponent<Rigidbody2D>();
 		groundCheck1 = transform.Find ("groundCheck1");
@@ -92,8 +98,8 @@ public class bearController : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		pathTimer -= 100;
-		Debug.Log ("GROUNDED:" + grounded);
+		pathTimer -= 1;
+		punchCooldown -= 1;
 		//Jump checks
 		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
 		bool grounded1 = Physics2D.Linecast(transform.position, groundCheck1.position, 1 << LayerMask.NameToLayer("Ground")); 
@@ -136,7 +142,6 @@ public class bearController : MonoBehaviour {
 		} else if (mInputs [(int)KeyInput.Jump] && !grounded) {
 			continueJumping = true;
 		}
-		Debug.Log (move);
 		if (move != 0/*Input.GetKey(KeyCode.RightArrow*/) {
 			if (move > 0) {
 				if (!facingRight) {
@@ -186,9 +191,16 @@ public class bearController : MonoBehaviour {
 	void Update()
 	{
 		if (grounded) {
-			if (pathTimer < 0) {
-				MoveTo (new Vector2i (((int)((GameObject.FindGameObjectWithTag ("Player")).transform.position.x)), ((int)(GameObject.FindGameObjectWithTag ("Player").transform.position.y))));
-				pathTimer = 1000;
+			playerDist= Vector3.Distance(RB.transform.position, (player.transform.position));
+			if (playerDist < 7 && punchCooldown < 0) {
+				if (mCurrentBotState != BotState.Punch) {
+					ChangeState (BotState.Punch);
+				}
+			}
+
+			else if (pathTimer < 0) {
+				MoveTo (new Vector2i (((int)(player.transform.position.x)), ((int)(player.transform.position.y))));
+				pathTimer = 10;
 			}
 		}
 		BotUpdate ();
@@ -254,6 +266,18 @@ public class bearController : MonoBehaviour {
 				mInputs [(int)KeyInput.Jump] = false;
 			}
 
+			break;
+
+		case BotState.Punch:
+			if (punchCooldown < 0) {
+				anim.SetTrigger ("Punch");
+				punchCooldown = 50;
+
+				Unit scriptin = player.GetComponent<Unit>();
+				Debug.Log (scriptin);
+				scriptin.playerHealthChange (-1);
+			}
+			Debug.Log ("punchstate");
 			break;
 
 		case BotState.MoveTo:
