@@ -46,7 +46,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 362, y: 883, z: 0}
+  m_LocalPosition: {x: 386, y: 395, z: 0}
   m_LocalScale: {x: 2.3452332, y: 2.3452332, z: 2.3452332}
   m_Children:
   - {fileID: 4995715914518970}
@@ -217,6 +217,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1117093004101296
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4179934248698670}
+  m_Layer: 8
+  m_Name: Barrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1590704326955330
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +263,19 @@ Transform:
   m_Father: {fileID: 449214}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4179934248698670
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1117093004101296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.91, y: 0.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4995715914518970}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4995715914518970
 Transform:
   m_ObjectHideFlags: 1
@@ -257,7 +285,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.02, y: 0.25, z: 0}
   m_LocalScale: {x: 0.9633937, y: 0.9633937, z: 0.9633937}
-  m_Children: []
+  m_Children:
+  - {fileID: 4179934248698670}
   m_Father: {fileID: 449214}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -362,7 +391,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e7b7dd50d587a408c060a4d354ca1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocket: {fileID: 149578, guid: 20d9d4c02d070c645877e8df41a922e7, type: 2}
+  projectile: {fileID: 110538, guid: 346a9c29ae3d90c438d11e51ccc28c46, type: 2}
+  cooldown: 1
+  cooldownTimer: 0
 --- !u!120 &120711103034892648
 LineRenderer:
   m_ObjectHideFlags: 1

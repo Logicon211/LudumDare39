@@ -3,14 +3,24 @@ using System.Collections;
 
 public class TrackMouse : MonoBehaviour {
 
-	public GameObject rocket;
+	public GameObject projectile;
+
+	public float cooldown = 1f;
+	public float velocity = 80f;
+
+	public float cooldownTimer = 0f;
+	private bool onCooldown = false;
 
 	private bool upsideDown = false;
+
 	private Animator anim;
+
+	private Transform barrel;
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
+		barrel = transform.Find ("Barrel");
 	}
 
 	void Update() {
@@ -35,19 +45,30 @@ public class TrackMouse : MonoBehaviour {
 			}
 		}
 
-		if(Input.GetMouseButtonDown(0)) {
+		if (onCooldown) {
+			cooldownTimer += Time.fixedDeltaTime;
+			if (cooldownTimer > cooldown) {
+				onCooldown = false;
+			}
+		} else {
+			cooldownTimer = 0f;
+		}
+
+
+		if(Input.GetMouseButtonDown(0) && !onCooldown) {
 
 			anim.SetTrigger ("Shoot");
 
-			GameObject rocketLaunched = null;
+			GameObject projectileLaunched = null;
 			if(faceRight) {
-				rocketLaunched = Instantiate(rocket, transform.position, actualRotate) as GameObject;
+				projectileLaunched = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
 			} else {
 				Vector3 posit = transform.localPosition;
 				posit = new Vector3(-posit.x,posit.y,posit.z);
-				rocketLaunched = Instantiate(rocket, transform.position, actualRotate) as GameObject;
+				projectileLaunched = Instantiate(projectile, barrel.position, actualRotate) as GameObject;
 			}
-			rocketLaunched.GetComponent<Rigidbody2D>().velocity = rocketLaunched.transform.right * 20;
+			projectileLaunched.GetComponent<Rigidbody2D>().velocity = projectileLaunched.transform.right * velocity;
+			onCooldown = true;
 		}
 	}
 
