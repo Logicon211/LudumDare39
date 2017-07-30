@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Unit : MonoBehaviour, IDamagable {
 
@@ -721,12 +722,12 @@ public class Unit : MonoBehaviour, IDamagable {
 
 	IEnumerator LoseGame() {			
 		yield return new  WaitForSeconds(3);  // or however long you want it to wait
-		Application.LoadLevel("GameOverScreen");
+		SceneManager.LoadScene("GameOverScreen");
 	}
 
 	IEnumerator WinGame() {			
 		yield return new WaitForSeconds(3);  // or however long you want it to wait
-		Application.LoadLevel("VictoryScreen");
+		SceneManager.LoadScene(6);
 	}
 
 }

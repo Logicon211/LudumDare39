@@ -152,8 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jump: 0
   facingRight: 1
-  speed: 10
-  jumpSpeed: 20
+  speed: 14
+  jumpSpeed: 25
   maxJumpHeight: 6
   playerHealth: 100
   playerEnergy: 100
@@ -1214,7 +1214,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 922415516
+  randomSeed: 310969557
   InitialModule:
     serializedVersion: 3
     enabled: 1

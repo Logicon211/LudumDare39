@@ -9,6 +9,9 @@ public class Pickups : MonoBehaviour {
 
 	bool disableCollider = false;
 
+	public int healthReturn = 20;
+	public float energyReturn = 20;
+
 	// Use this for initialization
 	void Start () {
 		floatUp = true;
@@ -50,10 +53,10 @@ public class Pickups : MonoBehaviour {
 					scriptin.upgradeWeapon ();
 				} else if (this.tag == "Energy") {
 					Unit scriptin = GameObject.FindGameObjectWithTag ("Player").GetComponent<Unit> ();
-					scriptin.playerEnergyChange (40f);
+					scriptin.playerEnergyChange (energyReturn);
 				} else if (this.tag == "Health") {
 					Unit scriptin = GameObject.FindGameObjectWithTag ("Player").GetComponent<Unit> ();
-					scriptin.playerHealthChange (40);
+					scriptin.playerHealthChange (healthReturn);
 				}
 				AudioSource pickupNoise = GameObject.FindGameObjectWithTag ("Player").transform.Find ("pickupNoise").gameObject.GetComponent<AudioSource> ();
 				pickupNoise.Play ();
