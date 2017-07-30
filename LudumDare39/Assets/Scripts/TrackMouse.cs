@@ -62,7 +62,7 @@ public class TrackMouse : MonoBehaviour {
 		}
 
 
-		if(Input.GetMouseButton(0) && !onCooldown) {
+		if (Input.GetMouseButton (0) && !onCooldown) {
 
 
 			if (weapon == 0) {
@@ -87,14 +87,14 @@ public class TrackMouse : MonoBehaviour {
 				projectileLaunched.transform.Rotate (0, 0, Random.Range (-15, 15));
 				projectileLaunched2.transform.Rotate (0, 0, Random.Range (-15, 15));
 				projectileLaunched3.transform.Rotate (0, 0, Random.Range (-15, 15));
-				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * (velocity+ Random.Range(-2,2));
-				projectileLaunched2.GetComponent<Rigidbody2D> ().velocity = projectileLaunched2.transform.right * (velocity+ Random.Range(-2,2));
-				projectileLaunched3.GetComponent<Rigidbody2D> ().velocity = projectileLaunched3.transform.right * (velocity+ Random.Range(-2,2));
+				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * (velocity + Random.Range (-2, 2));
+				projectileLaunched2.GetComponent<Rigidbody2D> ().velocity = projectileLaunched2.transform.right * (velocity + Random.Range (-2, 2));
+				projectileLaunched3.GetComponent<Rigidbody2D> ().velocity = projectileLaunched3.transform.right * (velocity + Random.Range (-2, 2));
 				onCooldown = true;
 				cooldown = 1f;
 
 			} else if (weapon == 1) {
-
+				anim.SetBool ("shooting", true);
 				GameObject projectileLaunched = null;
 			
 				if (faceRight) {
@@ -110,9 +110,7 @@ public class TrackMouse : MonoBehaviour {
 				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * velocity;
 				onCooldown = true;
 				cooldown = 0.25f;
-			}
-
-			else if (weapon == 2) {
+			} else if (weapon == 2) {
 				anim.SetTrigger ("Shoot");
 
 				GameObject projectileLaunched = null;
@@ -152,20 +150,18 @@ public class TrackMouse : MonoBehaviour {
 				projectileLaunched5.transform.Rotate (0, 0, Random.Range (-15, 15));
 				projectileLaunched6.transform.Rotate (0, 0, Random.Range (-15, 15));
 				projectileLaunched7.transform.Rotate (0, 0, Random.Range (-15, 15));
-				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * (velocity + Random.Range(-2,2));
-				projectileLaunched2.GetComponent<Rigidbody2D> ().velocity = projectileLaunched2.transform.right * (velocity+ Random.Range(-2,2));
-				projectileLaunched3.GetComponent<Rigidbody2D> ().velocity = projectileLaunched3.transform.right * (velocity+ Random.Range(-2,2));
-				projectileLaunched4.GetComponent<Rigidbody2D> ().velocity = projectileLaunched4.transform.right * (velocity+ Random.Range(-2,2));
-				projectileLaunched5.GetComponent<Rigidbody2D> ().velocity = projectileLaunched5.transform.right * (velocity+ Random.Range(-2,2));
-				projectileLaunched6.GetComponent<Rigidbody2D> ().velocity = projectileLaunched6.transform.right * (velocity+ Random.Range(-2,2));
-				projectileLaunched7.GetComponent<Rigidbody2D> ().velocity = projectileLaunched7.transform.right * (velocity+ Random.Range(-2,2));
+				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * (velocity + Random.Range (-2, 2));
+				projectileLaunched2.GetComponent<Rigidbody2D> ().velocity = projectileLaunched2.transform.right * (velocity + Random.Range (-2, 2));
+				projectileLaunched3.GetComponent<Rigidbody2D> ().velocity = projectileLaunched3.transform.right * (velocity + Random.Range (-2, 2));
+				projectileLaunched4.GetComponent<Rigidbody2D> ().velocity = projectileLaunched4.transform.right * (velocity + Random.Range (-2, 2));
+				projectileLaunched5.GetComponent<Rigidbody2D> ().velocity = projectileLaunched5.transform.right * (velocity + Random.Range (-2, 2));
+				projectileLaunched6.GetComponent<Rigidbody2D> ().velocity = projectileLaunched6.transform.right * (velocity + Random.Range (-2, 2));
+				projectileLaunched7.GetComponent<Rigidbody2D> ().velocity = projectileLaunched7.transform.right * (velocity + Random.Range (-2, 2));
 				onCooldown = true;
 				cooldown = 1f;
 
-			}
-
-			else if (weapon == 3) {
-
+			} else if (weapon == 3) {
+				anim.SetBool ("shooting", true);
 				GameObject projectileLaunched = null;
 
 				if (faceRight) {
@@ -181,9 +177,7 @@ public class TrackMouse : MonoBehaviour {
 				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * velocity;
 				onCooldown = true;
 				cooldown = 0.1f;
-			}
-
-			else if (weapon == 4) {
+			} else if (weapon == 4) {
 
 				GameObject projectileLaunched = null;
 
@@ -204,6 +198,8 @@ public class TrackMouse : MonoBehaviour {
 
 			gunAudioSource.PlayOneShot (gunSounds [weapon]);
 
+		} else if(!Input.GetMouseButton (0)) {
+			anim.SetBool ("shooting", false);
 		}
 	}
 
@@ -225,6 +221,7 @@ public class TrackMouse : MonoBehaviour {
 
 	public void upgradeWeapon(){
 		weapon++;
+		anim.SetInteger ("weapon", weapon);
 
 	}
 }
