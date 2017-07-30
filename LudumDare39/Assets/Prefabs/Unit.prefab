@@ -158,7 +158,7 @@ MonoBehaviour:
   width: 3
   height: 9
   groundTimer: 0
-  energyDepletedDeath: {fileID: 8300000, guid: edac01320a316c249a1edfbd1187beba, type: 3}
+  energyDepletedDeath: {fileID: 8300000, guid: e4e5e963b1670b94480b9d994476041c, type: 3}
 --- !u!212 &21285296
 SpriteRenderer:
   m_ObjectHideFlags: 1
