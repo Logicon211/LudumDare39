@@ -697,7 +697,7 @@ public class Unit : MonoBehaviour, IDamagable {
             speed = 0;
             jumpSpeed = 0;
             victoryNoise.Play();
-            WinGame();
+            StartCoroutine("WinGame");
         }
 
         energySlider.value = playerEnergy;
@@ -725,7 +725,7 @@ public class Unit : MonoBehaviour, IDamagable {
 	}
 
 	IEnumerator WinGame() {			
-		yield return new WaitForSeconds(2);  // or however long you want it to wait
+		yield return new WaitForSeconds(3);  // or however long you want it to wait
 		Application.LoadLevel("VictoryScreen");
 	}
 

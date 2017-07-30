@@ -21,11 +21,13 @@ public class OrcBoss: MonoBehaviour, IDamagable
     private float speedOriginal;
     private bool decayIncreased = false;
     public float jumpBack = 10.0f;
+    private AudioSource swingNoise;
 
 
     void Start ()
 	{
-		player = GameObject.FindGameObjectWithTag ("Player");
+        swingNoise = GetComponent<AudioSource>();
+        player = GameObject.FindGameObjectWithTag ("Player");
         scriptin = player.GetComponent<Unit>();
         decayOriginal = scriptin.energyDepletionRate;
 	    targetPosition = transform.position;
@@ -56,6 +58,7 @@ public class OrcBoss: MonoBehaviour, IDamagable
             (((player.transform.position.x < this.transform.position.x) && lookRight == true) || ((player.transform.position.x > this.transform.position.x) && lookRight == false))) {
                 speed = 0.0f;
 				animator.SetTrigger ("attack");
+            swingNoise.Play();
 			}
             /*If not in an attack animation and player is out of range, get over there!*/
             else if (!this.animator.GetCurrentAnimatorStateInfo(0).IsName("attack") )//&& playerDist > attackRange)
