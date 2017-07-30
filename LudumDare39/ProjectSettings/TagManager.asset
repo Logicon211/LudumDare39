@@ -15,6 +15,7 @@ TagManager:
   - Energy
   - Health
   - PowerUp
+  - ground
   layers:
   - Default
   - TransparentFX
