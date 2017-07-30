@@ -469,12 +469,12 @@ public class TrackMouse : MonoBehaviour {
 					projectileLaunched3 = Instantiate (Rocket, barrel.position, actualRotate) as GameObject;
 				}
 
-				projectileLaunched.transform.Rotate (0, 0, Random.Range (-5, 5));
-				projectileLaunched2.transform.Rotate (0, 0, Random.Range (-5, 5));
-				projectileLaunched3.transform.Rotate (0, 0, Random.Range (-5, 5));
-				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * velocity;
-				projectileLaunched2.GetComponent<Rigidbody2D> ().velocity = projectileLaunched2.transform.right * velocity;
-				projectileLaunched3.GetComponent<Rigidbody2D> ().velocity = projectileLaunched3.transform.right * velocity;
+				projectileLaunched.transform.Rotate (0, 0, Random.Range (-7, 7));
+				projectileLaunched2.transform.Rotate (0, 0, Random.Range (-7, 7));
+				projectileLaunched3.transform.Rotate (0, 0, Random.Range (-7, 7));
+				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * (velocity + Random.Range (-3, 3));
+				projectileLaunched2.GetComponent<Rigidbody2D> ().velocity = projectileLaunched2.transform.right * (velocity + Random.Range (-3, 3));
+				projectileLaunched3.GetComponent<Rigidbody2D> ().velocity = projectileLaunched3.transform.right * (velocity + Random.Range (-3, 3));
 				onCooldown = true;
 				cooldown = 0.25f;
 				Unit scriptin = playerIn.GetComponent<Unit> ();
