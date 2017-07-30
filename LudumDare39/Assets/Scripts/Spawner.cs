@@ -29,13 +29,17 @@ public class Spawner : MonoBehaviour {
 	public float timer = 0f;
 
 	public float spawnDistanceEnabled = 200f;
+
+	public bool spawnAfterPlayerPasses = false;
 	public bool enabled = false;
+
+	public float ampUpTime = 0f;
 
 	private GameObject player;
 
 	// Use this for initialization
 	void Start () {
-		if (spawnDistanceEnabled <= 0) {
+		if (spawnDistanceEnabled <= 0 && !spawnAfterPlayerPasses) {
 			enabled = true;
 		}
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -85,14 +89,27 @@ public class Spawner : MonoBehaviour {
 						Instantiate (mine, transform.position, Quaternion.identity);
 					}
 				}
+
+				if (ampUpTime > 0f) {
+					spawnTime -= ampUpTime;
+					if (spawnTime < 3f) {
+						spawnTime = 3f;
+					}
+				}
 			}
 		} else {
 			float playerDist = Vector3.Distance (this.transform.position, (player.transform.position));
 
 			Debug.Log (playerDist);
 
-			if (playerDist <= spawnDistanceEnabled) {
-				enabled = true;
+			if (!spawnAfterPlayerPasses) {
+				if (playerDist <= spawnDistanceEnabled) {
+					enabled = true;
+				}
+			} else {
+				if (player.transform.position.x >= this.transform.position.x) {
+					enabled = true;
+				}
 			}
 		}
 	}

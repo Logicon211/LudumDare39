@@ -436,9 +436,9 @@ public class bearController : MonoBehaviour, IDamagable {
 			case 1:
 				return 1;
 			case 2:
-				return 4;
+				return 2;
 			case 3:
-				return 8;
+				return 6;
 			case 4:
 				return 12;
 			case 5:
