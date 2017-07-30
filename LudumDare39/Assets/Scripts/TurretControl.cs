@@ -72,7 +72,7 @@ public class TurretControl : MonoBehaviour, IDamagable
 
                 Vector2 direction = playerPosition - ghostPosition;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                angle -= 90f;
+                angle -= 0f;
                 Quaternion actualRotate = Quaternion.AngleAxis(angle, Vector3.forward);
 
                 //We need 2 rotations stored so that we can display them correctly when the model is flipped left, but also need the actual rotate for when we spawn new rockets down below
