@@ -7,6 +7,8 @@ public class Pickups : MonoBehaviour {
 	private bool floatUp;
 	float driftAmount;
 
+	bool disableCollider = false;
+
 	// Use this for initialization
 	void Start () {
 		floatUp = true;
@@ -38,22 +40,25 @@ public class Pickups : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col) {
 		//This isn't calling for some reason
 		//Test for projectile collision
-		if (col.gameObject.tag == "Player") {
-			AudioSource pickupNoise = GameObject.FindGameObjectWithTag ("Player").transform.Find("pickupNoise").gameObject.GetComponent<AudioSource>();
-			pickupNoise.Play ();
-			gameObject.GetComponent<BoxCollider2D> ().enabled = false;
-			Debug.Log ("collided with player");
-			if (this.tag == "PowerUp") {
-				TrackMouse scriptin = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<TrackMouse> ();
-				scriptin.upgradeWeapon ();
-			} else if (this.tag == "Energy") {
-				Unit scriptin = GameObject.FindGameObjectWithTag ("Player").GetComponent<Unit> ();
-				scriptin.playerEnergyChange (40f);
-			} else if (this.tag == "Health") {
-				Unit scriptin = GameObject.FindGameObjectWithTag ("Player").GetComponent<Unit> ();
-				scriptin.playerHealthChange (40);
+		if (!disableCollider) {
+			if (col.gameObject.tag == "Player") {
+				disableCollider = true;
+				gameObject.GetComponent<BoxCollider2D> ().enabled = false;
+				Debug.Log ("collided with player");
+				if (this.tag == "PowerUp") {
+					TrackMouse scriptin = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<TrackMouse> ();
+					scriptin.upgradeWeapon ();
+				} else if (this.tag == "Energy") {
+					Unit scriptin = GameObject.FindGameObjectWithTag ("Player").GetComponent<Unit> ();
+					scriptin.playerEnergyChange (40f);
+				} else if (this.tag == "Health") {
+					Unit scriptin = GameObject.FindGameObjectWithTag ("Player").GetComponent<Unit> ();
+					scriptin.playerHealthChange (40);
+				}
+				AudioSource pickupNoise = GameObject.FindGameObjectWithTag ("Player").transform.Find ("pickupNoise").gameObject.GetComponent<AudioSource> ();
+				pickupNoise.Play ();
+				Destroy (this.gameObject);
 			}
-			Destroy (this.gameObject);
 		}
 
 
