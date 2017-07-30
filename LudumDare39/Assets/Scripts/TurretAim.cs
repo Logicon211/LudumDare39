@@ -17,12 +17,9 @@ public class TurretAim : MonoBehaviour {
         Vector3 dir = pos - player.transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-		Debug.Log (dir);
-
         //We need 2 rotations stored so that we can display them correctly when the model is flipped left, but also need the actual rotate for when we spawn new rockets down below
         Quaternion actualRotate = Quaternion.AngleAxis(angle, Vector3.forward);
         this.transform.rotation = actualRotate;
 
-		Debug.Log (actualRotate);
     }
 }
