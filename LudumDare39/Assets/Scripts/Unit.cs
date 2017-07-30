@@ -700,6 +700,18 @@ public class Unit : MonoBehaviour, IDamagable {
             victoryNoise.Play();
             StartCoroutine("WinGame");
         }
+        else if(playerEnergy > 100 && inBossFight == true)
+        {
+           // if (energySlider.gameObject.GetComponent<ParticleSystem>().enabled == false)
+           // {
+                energySlider.gameObject.GetComponent<ParticleSystem>().enableEmission = true;
+           // }
+            energySlider.gameObject.GetComponent<ParticleSystem>().emissionRate = ((playerEnergy - 100) / 10);
+        }
+        else if (playerEnergy < 100 && inBossFight == true)
+        {
+            energySlider.gameObject.GetComponent<ParticleSystem>().enableEmission = false;
+        }
 
         energySlider.value = playerEnergy;
 		if (playerEnergy <= 0) {
