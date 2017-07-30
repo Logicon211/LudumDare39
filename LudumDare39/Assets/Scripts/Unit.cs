@@ -8,6 +8,9 @@ public class Unit : MonoBehaviour, IDamagable {
 	[HideInInspector]
 	public bool jump = false;				// Condition for whether the player should jump.
 
+	private AudioSource jumpNoise;
+	private AudioSource hurtNoise;
+
 	public bool facingRight = true;
 	public float speed = 10f;
 	public float jumpSpeed = 40f;
@@ -35,6 +38,9 @@ public class Unit : MonoBehaviour, IDamagable {
 	public static float MAX_GROUNDED_TIMER = 2f;
 
 	private bool isDead = false;
+
+
+
 
 	//Bot code. May move out of here?
 	public enum BotState
@@ -67,8 +73,12 @@ public class Unit : MonoBehaviour, IDamagable {
 
 	// Use this for initialization
 	void Start () {
+		GameObject child = transform.Find("PainNoise").gameObject;
+		hurtNoise = child.GetComponent<AudioSource>();
+
 		lineRenderer = GetComponent<LineRenderer> ();
 
+		jumpNoise = GetComponent<AudioSource> ();
 		mLevel = Level.getLevel ();
 		RB = GetComponent<Rigidbody2D>();
 		groundCheck1 = transform.Find ("groundCheck1");
@@ -118,6 +128,7 @@ public class Unit : MonoBehaviour, IDamagable {
 		// If the jump button is pressed and the player is grounded then the player should jump.
 		if (Input.GetAxis ("Vertical") > 0 && grounded) {
 			jump = true;
+			jumpNoise.Play ();
 		} else if (Input.GetAxis ("Vertical") > 0 && !grounded) {
 			continueJumping = true;
 		}
@@ -133,6 +144,7 @@ public class Unit : MonoBehaviour, IDamagable {
 		
 		if (mInputs [(int)KeyInput.Jump] && grounded) {
 			jump = true;
+			jumpNoise.Play ();
 		} else if (mInputs [(int)KeyInput.Jump] && !grounded) {
 			continueJumping = true;
 		}
@@ -619,6 +631,9 @@ public class Unit : MonoBehaviour, IDamagable {
 		else{
 			//hurt
 			playerHealth+=healthIn;
+			if (!hurtNoise.isPlaying) {
+				hurtNoise.Play ();
+			}
 			//Play ow sound
 		}
 		Debug.Log ("Player health: " + playerHealth);

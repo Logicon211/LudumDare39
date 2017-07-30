@@ -24,7 +24,8 @@ public class bearController : MonoBehaviour, IDamagable {
 	//Jumping Stuff
 	public LayerMask whatIsGround;
 	private bool grounded = false;
-
+	private AudioSource runningSound;
+	private AudioSource PunchNoise;
 	private AudioSource AS;
 	private Animator anim;
 	private Rigidbody2D RB;
@@ -85,6 +86,11 @@ public class bearController : MonoBehaviour, IDamagable {
 	}
 
 	void Start () {
+		GameObject child = transform.Find("RunningSound").gameObject;
+		runningSound = child.GetComponent<AudioSource>();
+		GameObject child2 = transform.Find("PunchNoise").gameObject;
+		PunchNoise = child2.GetComponent<AudioSource>();
+
 		player = GameObject.FindGameObjectWithTag ("Player");
 		lineRenderer = GetComponent<LineRenderer> ();
 		punchCooldown = 0;
@@ -216,6 +222,7 @@ public class bearController : MonoBehaviour, IDamagable {
 					Debug.Log ("Running Moveto");
 					MoveTo (new Vector2i (((int)(player.transform.position.x)), ((int)(player.transform.position.y)) - 2));
 					pathTimer = 10;
+
 				}
 			}
 		}
@@ -293,10 +300,14 @@ public class bearController : MonoBehaviour, IDamagable {
 
 				Unit scriptin = player.GetComponent<Unit>();
 				scriptin.playerHealthChange (-1);
+				PunchNoise.Play();
 			}
 			break;
 
 		case BotState.MoveTo:
+			if (!runningSound.isPlaying) {
+				runningSound.Play ();
+			}
 			Vector2 prevDest, currentDest, nextDest;
 			bool destOnGround, reachedY, reachedX;
 

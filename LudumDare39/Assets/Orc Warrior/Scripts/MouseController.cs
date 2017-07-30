@@ -12,6 +12,7 @@ public class MouseController : MonoBehaviour, IDamagable
 	float playerDist;
     private Animator animator;
 	public float maxDistance;
+	private bool chase;
 
 	public int giantHealth;
 
@@ -19,6 +20,7 @@ public class MouseController : MonoBehaviour, IDamagable
 
 	void Start ()
 	{
+		chase = false;
 		player = GameObject.FindGameObjectWithTag ("Player");
 	    targetPosition = transform.position;
 	    animator = GetComponent<Animator>();
@@ -29,8 +31,10 @@ public class MouseController : MonoBehaviour, IDamagable
 
 		playerDist = Vector3.Distance (this.transform.position, (player.transform.position));
 		if (playerDist <= maxDistance) {
+			chase = true;
+		}
 
-
+		if(chase){
 			if (!this.animator.GetCurrentAnimatorStateInfo (0).IsName ("attack")) {
 				animator.SetTrigger ("attack");
 			}

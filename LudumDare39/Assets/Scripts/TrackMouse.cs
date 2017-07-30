@@ -225,5 +225,6 @@ public class TrackMouse : MonoBehaviour {
 
 	public void upgradeWeapon(){
 		weapon++;
+
 	}
 }

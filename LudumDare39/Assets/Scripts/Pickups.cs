@@ -38,7 +38,6 @@ public class Pickups : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col) {
 		//This isn't calling for some reason
 		//Test for projectile collision
-		Debug.Log ("collided with something");
 		if (col.gameObject.tag == "Player") {
 			Debug.Log ("collided with player");
 			if (this.tag == "PowerUp") {
