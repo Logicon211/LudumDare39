@@ -32,9 +32,10 @@ public class TrackMouse : MonoBehaviour {
 		barrel = transform.Find ("Barrel");
 
 		//Persistent Object stuff
-		PersistentGameObject PGO = GameObject.Find ("PersistentObject").GetComponent<PersistentGameObject> ();
+		PersistentGameObject PGO = GameObject.FindGameObjectWithTag ("PersistentObject").GetComponent<PersistentGameObject> ();
 		PGO.setPlayerLevel(SceneManager.GetActiveScene ().buildIndex);
 		weapon = PGO.getPlayerWeapon();
+		anim.SetInteger ("weapon", weapon);
 	}
 
 	void Update() {

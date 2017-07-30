@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeSpeed: 1.5
-  sceneToLoadIndex: 1
+  sceneToLoadIndex: USES PERSISTENT OBJECT TO DECIDE SEE SCRIPT
 --- !u!131 &568932794
 GUITexture:
   m_ObjectHideFlags: 0

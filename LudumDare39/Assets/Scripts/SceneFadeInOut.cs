@@ -8,7 +8,7 @@ public class SceneFadeInOut : MonoBehaviour
 	
 	private bool sceneStarting = true;      // Whether or not the scene is still fading in.
 	private bool sceneEnding = false;
-	public int sceneToLoadIndex;
+	public string sceneToLoadIndex;
 
 	void Awake ()
 	{
@@ -97,9 +97,12 @@ public class SceneFadeInOut : MonoBehaviour
 		FadeToBlack();
 
 		// If the screen is almost black...
-		if(GetComponent<GUITexture>().color.a >= 0.95f)
+		if (GetComponent<GUITexture> ().color.a >= 0.95f) {
 			// ... reload the level.
 			//Application.LoadLevel(sceneToLoad);
-			LoadingScreenManager.LoadScene(sceneToLoadIndex);
+			PersistentGameObject PGO = GameObject.FindGameObjectWithTag ("PersistentObject").GetComponent<PersistentGameObject> ();
+			//PersistentGameObject.// (player.transform.Find ("RifleWeapon").gameObject.GetComponent<TrackMouse> ().weapon);
+			LoadingScreenManager.LoadScene (PGO.getPlayerLevel ());
+		}
 	}
 }

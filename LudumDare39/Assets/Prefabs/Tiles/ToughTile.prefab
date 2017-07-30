@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4000011770551882}
   - component: {fileID: 212000010510154134}
   - component: {fileID: 61000011867658798}
-  - component: {fileID: 114000014138448540}
+  - component: {fileID: 114396868375904264}
   m_Layer: 15
   m_Name: ToughTile
   m_TagString: ground
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010086179936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 396.31415, y: 156.3754, z: 0}
+  m_LocalPosition: {x: 921.03174, y: 82.150024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114000014138448540
+--- !u!114 &114396868375904264
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,14 +75,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010086179936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d3ba4d37ee7bd409b035e198e0cf1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e1c55f5fa789ed4ab91f7d574b33af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   x: 0
   y: 0
   level: {fileID: 0}
-  maxHP: 10
-  HP: 10
+  maxHP: 999
+  HP: 999
   undamagedSprite: {fileID: 21300000, guid: ffc2771db1700d041a5ff485cf9bb014, type: 3}
   dingedSprite: {fileID: 21300000, guid: 4e4bb1b14a1dc0248b323ed0d0b9b2a5, type: 3}
   damagedSprite: {fileID: 21300000, guid: 2dec3ab60c3f9ec42895e36a074ade8b, type: 3}
