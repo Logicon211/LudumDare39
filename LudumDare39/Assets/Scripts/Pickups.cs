@@ -39,6 +39,9 @@ public class Pickups : MonoBehaviour {
 		//This isn't calling for some reason
 		//Test for projectile collision
 		if (col.gameObject.tag == "Player") {
+			AudioSource pickupNoise = GameObject.FindGameObjectWithTag ("Player").transform.Find("pickupNoise").gameObject.GetComponent<AudioSource>();
+			pickupNoise.Play ();
+			gameObject.GetComponent<BoxCollider2D> ().enabled = false;
 			Debug.Log ("collided with player");
 			if (this.tag == "PowerUp") {
 				TrackMouse scriptin = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<TrackMouse> ();
