@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1726489905555456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 228.4, y: 174.3, z: 0}
+  m_LocalPosition: {x: 131.14442, y: 168.93042, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,11 +56,19 @@ MonoBehaviour:
   ghost: {fileID: 1085924500501852, guid: 9d8da011c4054364b98e279efad0d4ce, type: 2}
   barrel: {fileID: 1568613351075934, guid: bb71bbd4db709804b8833bb9985cb97a, type: 2}
   mine: {fileID: 1316162061326510, guid: 2626042519ab1d14f84ca9ee5868f06d, type: 2}
+  energyPickup: {fileID: 1384344383301446, guid: a2f5029a0be671946a28ae92c7e6fa3a,
+    type: 2}
+  healthPickup: {fileID: 1874634713792400, guid: 7754c7014a8b70941991ec894165d3ee,
+    type: 2}
   bearRate: 70
   betterBeartRate: 40
   ghostRate: 0
   barrelRate: 0
   mineRate: 0
+  energyPickupRate: 0
+  healthPickupRate: 0
   spawnChance: 100
   spawnTime: 20
   timer: 0
+  spawnDistanceEnabled: 200
+  enabled: 0

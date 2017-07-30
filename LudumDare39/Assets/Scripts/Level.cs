@@ -21,6 +21,7 @@ public class Level : MonoBehaviour {
 	public MapTile[,] mapTiles;
 
 	public GameObject groundTilePrefab;
+	public GameObject toughTilePrefab;
 	public GameObject indestructableTilePrefab;
 
 	public enum Direction {Up, Right, Down, Left};
@@ -191,6 +192,10 @@ public class Level : MonoBehaviour {
 							} 
 							if (id == 1) {
 								tile = (Instantiate(indestructableTilePrefab, new Vector3(transform.position.x +(tileX), transform.position.y +(tileY), 0), transform.rotation) as GameObject).GetComponent<MapTile> ();
+								tile.Instantiate (tileX, tileY, transform, this);
+							} 
+							if (id == 2) {
+								tile = (Instantiate(toughTilePrefab, new Vector3(transform.position.x +(tileX), transform.position.y +(tileY), 0), transform.rotation) as GameObject).GetComponent<MapTile> ();
 								tile.Instantiate (tileX, tileY, transform, this);
 							} 
 							//More tiles to check for in here
