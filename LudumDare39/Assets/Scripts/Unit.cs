@@ -80,7 +80,9 @@ public class Unit : MonoBehaviour, IDamagable {
 
 	// Use this for initialization
 	void Start () {
-        victoryNoise = GameObject.Find("VictorySound").GetComponent<AudioSource>();
+		if (inBossFight) {
+			victoryNoise = GameObject.Find ("VictorySound").GetComponent<AudioSource> ();
+		}
         GameObject child = transform.Find("PainNoise").gameObject;
 		hurtNoise = child.GetComponent<AudioSource>();
 
