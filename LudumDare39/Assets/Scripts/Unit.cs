@@ -11,7 +11,7 @@ public class Unit : MonoBehaviour, IDamagable {
 	private AudioSource jumpNoise;
 	private AudioSource hurtNoise;
 
-	public bool facingRight = true;
+    public bool facingRight = true;
 	public float speed = 10f;
 	public float jumpSpeed = 40f;
 
@@ -41,7 +41,10 @@ public class Unit : MonoBehaviour, IDamagable {
 
 	public AudioClip energyDepletedDeath;
 
-
+    //A few variables related to the final boss fight
+    public bool isInvincible = false;
+    public bool inBossFight = false;
+    public float victoryTotal = 200.0f;
 
 
 	//Bot code. May move out of here?
@@ -630,7 +633,7 @@ public class Unit : MonoBehaviour, IDamagable {
 			}
 		}
 
-		else{
+		else if (isInvincible == false){
 			//hurt
 			playerHealth+=healthIn;
 			if (!hurtNoise.isPlaying) {
@@ -654,14 +657,24 @@ public class Unit : MonoBehaviour, IDamagable {
 	}
 
 	public void damage(int damage) {
-		playerHealthChange (-damage);
+            playerHealthChange(-damage);
 	}
 
 	public void playerEnergyChange(float energyIn) {
 		playerEnergy += energyIn;
-		if (playerEnergy > 100) {
+		if (playerEnergy > 100 && inBossFight == false) {
 			playerEnergy = 100f;
 		}
+        else if (playerEnergy >= victoryTotal)
+        {
+            isInvincible = true;
+            this.gameObject.GetComponent<ParticleSystem>().enableEmission = true;
+            AudioSource victoryNoise = GetComponent<AudioSource>();
+            victoryNoise.Play();
+            speed = 0.0f;
+            jumpSpeed = 0.0f;
+            WinGame();
+        }
 
         energySlider.value = playerEnergy;
 		if (playerEnergy <= 0) {
@@ -689,7 +702,7 @@ public class Unit : MonoBehaviour, IDamagable {
 	}
 
 	IEnumerator WinGame() {			
-		yield return new WaitForSeconds(3);  // or however long you want it to wait
+		yield return new WaitForSeconds(6);  // or however long you want it to wait
 		Application.LoadLevel("VictoryScreen");
 	}
 
