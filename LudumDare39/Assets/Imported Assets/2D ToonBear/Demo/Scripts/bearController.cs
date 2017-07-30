@@ -508,7 +508,7 @@ public class bearController : MonoBehaviour, IDamagable {
 			1);
 
 		//***** Wierd pathfinding fix so that dudes don't get stuck too long
-		while (path == null && width > 0) {
+		while (path == null && width > 2) {
 			width--;
 			path =  mLevel.mPathFinder.FindPath(
 				startTile, 
