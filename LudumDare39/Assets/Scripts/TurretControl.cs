@@ -31,12 +31,19 @@ public class TurretControl : MonoBehaviour, IDamagable
         RB = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         playerDist = Vector3.Distance(RB.transform.position, player.transform.position);
         Vector2 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y);
-        Vector2 ghostPosition = new Vector2(this.transform.position.x, this.transform.position.y);
+        Vector2 turretPosition = new Vector2(this.transform.position.x, this.transform.position.y);
+
+
 
         if (onCooldown)
         {
@@ -68,9 +75,9 @@ public class TurretControl : MonoBehaviour, IDamagable
             //if (!anim.GetCurrentAnimatorStateInfo(0).IsName("GhostAttack"))
             {
                 //Attack animation finished, fire bullet
-                Vector2 heading = (playerPosition - ghostPosition) / playerDist;
+                Vector2 heading = (playerPosition - turretPosition) / playerDist;
 
-                Vector2 direction = playerPosition - ghostPosition;
+                Vector2 direction = playerPosition - turretPosition;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 angle -= 0f;
                 Quaternion actualRotate = Quaternion.AngleAxis(angle, Vector3.forward);
