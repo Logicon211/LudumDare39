@@ -81,8 +81,8 @@ MonoBehaviour:
   x: 0
   y: 0
   level: {fileID: 0}
-  maxHP: 20
-  HP: 20
+  maxHP: 10
+  HP: 10
   undamagedSprite: {fileID: 21300000, guid: bfea1675669386d44a26549bf2782267, type: 3}
   dingedSprite: {fileID: 21300000, guid: 8d06d2a382205944688cd150d92dcef6, type: 3}
   damagedSprite: {fileID: 21300000, guid: 0661758911823d444b3524c831a6464a, type: 3}
