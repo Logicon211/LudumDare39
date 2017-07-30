@@ -674,7 +674,7 @@ public class Unit : MonoBehaviour, IDamagable {
 		if (playerEnergy > 100 && inBossFight == false) {
 			playerEnergy = 100f;
 		}
-        else if (playerEnergy >= victoryTotal)
+        else if (playerEnergy >= victoryTotal && inBossFight == true)
         {
             isInvincible = true;
             this.gameObject.GetComponent<ParticleSystem>().enableEmission = true;
