@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4893385723679968}
   - component: {fileID: 212779801777910096}
-  - component: {fileID: 50398066000295250}
   - component: {fileID: 114071217970694846}
   m_Layer: 9
   m_Name: ATurret
@@ -70,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1530011159479068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 371.7, y: 165.3, z: 0}
+  m_LocalPosition: {x: 393.80743, y: 182.57413, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 4079263270648950}
@@ -111,33 +110,13 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1530011159479068}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!50 &50398066000295250
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361287825481704}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 5
+  m_LinearDrag: 1
+  m_AngularDrag: 0.2
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -197,8 +176,8 @@ MonoBehaviour:
   inFiringAnimation: 0
   deathEffect: {fileID: 156964, guid: 15ff87b027731ae4cbf07bb092fba046, type: 2}
   projectile: {fileID: 149578, guid: 18fe032b98dcb9e4dae453ceb49c5475, type: 2}
-  health: 5
-  projectileSpeed: 10
+  health: 10
+  projectileSpeed: 20
 --- !u!212 &212779801777910096
 SpriteRenderer:
   m_ObjectHideFlags: 1
