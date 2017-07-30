@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TrackMouse : MonoBehaviour {
 
@@ -29,7 +30,11 @@ public class TrackMouse : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		gunAudioSource = GetComponent<AudioSource> ();
 		barrel = transform.Find ("Barrel");
-		weapon = 0;
+
+		//Persistent Object stuff
+		PersistentGameObject PGO = GameObject.Find ("PersistentObject").GetComponent<PersistentGameObject> ();
+		PGO.setPlayerLevel(SceneManager.GetActiveScene ().buildIndex);
+		weapon = PGO.getPlayerWeapon();
 	}
 
 	void Update() {
