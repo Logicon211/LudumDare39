@@ -25,7 +25,8 @@ public class MineExplodeOnContact : MonoBehaviour {
         playerDist = Vector3.Distance(RB.transform.position, (player.transform.position));
         if (playerDist < blastRadius)
         {
-            
+            IDamagable scriptin = player.GetComponent<IDamagable>();
+            scriptin.damage(damageValue);
         }
         foreach (GameObject thing in GameObject.FindGameObjectsWithTag("Enemy"))
         {

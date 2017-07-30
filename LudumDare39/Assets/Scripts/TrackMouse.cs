@@ -17,9 +17,14 @@ public class TrackMouse : MonoBehaviour {
 	public int weapon;
 	private Transform barrel;
 
+	//Audio clips
+	private AudioSource gunAudioSource;
+	public AudioClip[] gunSounds = new AudioClip[10];
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
+		gunAudioSource = GetComponent<AudioSource> ();
 		barrel = transform.Find ("Barrel");
 		weapon = 0;
 	}
@@ -197,6 +202,7 @@ public class TrackMouse : MonoBehaviour {
 				cooldown = 0.5f;
 			}
 
+			gunAudioSource.PlayOneShot (gunSounds [weapon]);
 
 		}
 	}
