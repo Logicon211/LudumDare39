@@ -4,7 +4,7 @@ using System.Collections;
 public class TrackMouse : MonoBehaviour {
 
 	public GameObject projectile;
-
+	public GameObject Rocket;
 	public float cooldown = 1f;
 	public float velocity = 80f;
 
@@ -178,16 +178,16 @@ public class TrackMouse : MonoBehaviour {
 				onCooldown = true;
 				cooldown = 0.1f;
 			} else if (weapon == 4) {
-
+				anim.SetTrigger ("Shoot");
 				GameObject projectileLaunched = null;
 
 				if (faceRight) {
-					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched = Instantiate (Rocket, barrel.position, actualRotate) as GameObject;
 
 				} else {
 					Vector3 posit = transform.localPosition;
 					posit = new Vector3 (-posit.x, posit.y, posit.z);
-					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+					projectileLaunched = Instantiate (Rocket, barrel.position, actualRotate) as GameObject;
 				}
 
 				projectileLaunched.transform.Rotate (0, 0, Random.Range (-1, 1));

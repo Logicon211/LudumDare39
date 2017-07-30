@@ -804,6 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 110538, guid: 346a9c29ae3d90c438d11e51ccc28c46, type: 2}
+  Rocket: {fileID: 149578, guid: 20d9d4c02d070c645877e8df41a922e7, type: 2}
   cooldown: 1
   velocity: 80
   cooldownTimer: 0
