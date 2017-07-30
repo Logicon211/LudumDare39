@@ -33,9 +33,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1726489905555456}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 131.14442, y: 168.93042, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 50.7, y: 25.1, z: 0}
+  m_LocalScale: {x: 0.42639682, y: 0.42639682, z: 0.42639682}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,15 +60,15 @@ MonoBehaviour:
     type: 2}
   healthPickup: {fileID: 1874634713792400, guid: 7754c7014a8b70941991ec894165d3ee,
     type: 2}
-  bearRate: 70
-  betterBeartRate: 40
+  bearRate: 50
+  betterBeartRate: 20
   ghostRate: 0
   barrelRate: 0
   mineRate: 0
   energyPickupRate: 0
   healthPickupRate: 0
   spawnChance: 100
-  spawnTime: 20
+  spawnTime: 25
   timer: 0
-  spawnDistanceEnabled: 200
+  spawnDistanceEnabled: 100
   enabled: 0

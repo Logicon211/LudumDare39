@@ -47,60 +47,62 @@ public class GhostEnemy : MonoBehaviour, IDamagable {
 	// Update is called once per frame
 	void FixedUpdate () {
 		playerDist= Vector3.Distance(RB.transform.position, player.transform.position);
-		Vector2 playerPosition = new Vector2 (player.transform.position.x, player.transform.position.y);
-		Vector2 ghostPosition = new Vector2 (this.transform.position.x, this.transform.position.y);
+		if (playerDist <= maxDistance) {
+			Vector2 playerPosition = new Vector2 (player.transform.position.x, player.transform.position.y);
+			Vector2 ghostPosition = new Vector2 (this.transform.position.x, this.transform.position.y);
 		
-		if (distanceToKeepFromPlayer + 5f < playerDist) {
-			Vector2 heading = (playerPosition - ghostPosition) / playerDist;
-			RB.velocity = heading * speed;
-		} else if (distanceToKeepFromPlayer > playerDist) {
-			Vector2 heading = (ghostPosition - playerPosition) / playerDist;
-			RB.velocity = heading * speed;
-		}
+			if (distanceToKeepFromPlayer + 5f < playerDist) {
+				Vector2 heading = (playerPosition - ghostPosition) / playerDist;
+				RB.velocity = heading * speed;
+			} else if (distanceToKeepFromPlayer > playerDist) {
+				Vector2 heading = (ghostPosition - playerPosition) / playerDist;
+				RB.velocity = heading * speed;
+			}
 
-		if (onCooldown) {
-			attackTimer += Time.fixedDeltaTime;
-			if (attackTimer > attackCooldown) {
-				onCooldown = false;
+			if (onCooldown) {
+				attackTimer += Time.fixedDeltaTime;
+				if (attackTimer > attackCooldown) {
+					onCooldown = false;
+					attackTimer = 0f;
+				}
+			} else {
 				attackTimer = 0f;
 			}
-		} else {
-			attackTimer = 0f;
-		}
 
-		if (firing && !inFiringAnimation) {
-			if (anim.GetCurrentAnimatorStateInfo (0).IsName ("GhostAttack")) {
-				inFiringAnimation = true;
+			if (firing && !inFiringAnimation) {
+				if (anim.GetCurrentAnimatorStateInfo (0).IsName ("GhostAttack")) {
+					inFiringAnimation = true;
+				}
+			} else if (firing) {
+				if (!anim.GetCurrentAnimatorStateInfo (0).IsName ("GhostAttack")) {
+					//Attack animation finished, fire bullet
+					Vector2 heading = (playerPosition - ghostPosition) / playerDist;
+
+					Vector2 direction = playerPosition - ghostPosition;
+					float angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
+					angle -= 90f;
+					Quaternion actualRotate = Quaternion.AngleAxis (angle, Vector3.forward);
+
+					//We need 2 rotations stored so that we can display them correctly when the model is flipped left, but also need the actual rotate for when we spawn new rockets down below
+
+					GameObject projectileLaunched = Instantiate (projectile, this.transform.position, actualRotate) as GameObject;
+					projectileLaunched.GetComponent<Rigidbody2D> ().velocity = heading * projectileSpeed;
+
+					inFiringAnimation = false;
+					firing = false;
+
+					AS.PlayOneShot (shootSound);
+				}
 			}
-		} else if (firing) {
-			if (!anim.GetCurrentAnimatorStateInfo (0).IsName ("GhostAttack")) {
-				//Attack animation finished, fire bullet
-				Vector2 heading = (playerPosition - ghostPosition) / playerDist;
 
-				Vector2 direction = playerPosition - ghostPosition;
-				float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-				angle -= 90f;
-				Quaternion actualRotate = Quaternion.AngleAxis(angle, Vector3.forward);
+			//Check if in range to fire
+			if (playerDist <= distanceToKeepFromPlayer + 10f) {
 
-				//We need 2 rotations stored so that we can display them correctly when the model is flipped left, but also need the actual rotate for when we spawn new rockets down below
-
-				GameObject projectileLaunched = Instantiate(projectile, this.transform.position, actualRotate) as GameObject;
-				projectileLaunched.GetComponent<Rigidbody2D>().velocity = heading * projectileSpeed;
-
-				inFiringAnimation = false;
-				firing = false;
-
-				AS.PlayOneShot (shootSound);
-			}
-		}
-
-		//Check if in range to fire
-		if (playerDist <= distanceToKeepFromPlayer + 10f) {
-
-			if (!onCooldown) {
-				anim.SetTrigger ("fire");
-				firing = true;
-				onCooldown = true;
+				if (!onCooldown) {
+					anim.SetTrigger ("fire");
+					firing = true;
+					onCooldown = true;
+				}
 			}
 		}
 

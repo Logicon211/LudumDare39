@@ -50,7 +50,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.129906, y: 170.71596, z: 0}
+  m_LocalPosition: {x: 11.5, y: 144.9, z: 0}
   m_LocalScale: {x: 2.3452332, y: 2.3452332, z: 2.3452332}
   m_Children:
   - {fileID: 4995715914518970}
@@ -58,6 +58,8 @@ Transform:
   - {fileID: 482324}
   - {fileID: 4196033374518932}
   - {fileID: 4646555282824622}
+  - {fileID: 4345691530492712}
+  - {fileID: 4113644092220224}
   - {fileID: 4610354348331174}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -162,7 +164,7 @@ MonoBehaviour:
   height: 9
   groundTimer: 0
   energyDepletedDeath: {fileID: 8300000, guid: e4e5e963b1670b94480b9d994476041c, type: 3}
-  healthDepletedDeath: {fileID: 0}
+  healthDepletedDeath: {fileID: 8300000, guid: 217eb8377232982468cf23fb3883e94a, type: 3}
   isInvincible: 0
   inBossFight: 0
   victoryTotal: 200
@@ -300,6 +302,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1484972144823862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4345691530492712}
+  - component: {fileID: 114699939345291166}
+  m_Layer: 0
+  m_Name: EnemySpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1496196549956368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4113644092220224}
+  - component: {fileID: 114552560370673422}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1590704326955330
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +366,19 @@ Transform:
   m_Father: {fileID: 449214}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4113644092220224
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1496196549956368}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 50.7, y: 25.1, z: 0}
+  m_LocalScale: {x: 0.42639682, y: 0.42639682, z: 0.42639682}
+  m_Children: []
+  m_Father: {fileID: 449214}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4179934248698670
 Transform:
   m_ObjectHideFlags: 1
@@ -358,6 +405,19 @@ Transform:
   m_Father: {fileID: 449214}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4345691530492712
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1484972144823862}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -35.484352, y: 20.6, z: 0}
+  m_LocalScale: {x: 0.42639682, y: 0.42639682, z: 0.42639682}
+  m_Children: []
+  m_Father: {fileID: 449214}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4610354348331174
 Transform:
   m_ObjectHideFlags: 1
@@ -369,7 +429,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 449214}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4646555282824622
 Transform:
@@ -938,6 +998,70 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &114552560370673422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1496196549956368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa67acdf9403fdf4781c84995517a0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bear: {fileID: 1894823465303392, guid: 382444816ae10884eb827fbbdad1bffc, type: 2}
+  betterBear: {fileID: 1626332803581062, guid: 04d79c20f570db348b467e4377b0cea9, type: 2}
+  ghost: {fileID: 1085924500501852, guid: 9d8da011c4054364b98e279efad0d4ce, type: 2}
+  barrel: {fileID: 1568613351075934, guid: bb71bbd4db709804b8833bb9985cb97a, type: 2}
+  mine: {fileID: 1316162061326510, guid: 2626042519ab1d14f84ca9ee5868f06d, type: 2}
+  energyPickup: {fileID: 1384344383301446, guid: a2f5029a0be671946a28ae92c7e6fa3a,
+    type: 2}
+  healthPickup: {fileID: 1874634713792400, guid: 7754c7014a8b70941991ec894165d3ee,
+    type: 2}
+  bearRate: 50
+  betterBeartRate: 20
+  ghostRate: 0
+  barrelRate: 0
+  mineRate: 0
+  energyPickupRate: 0
+  healthPickupRate: 0
+  spawnChance: 100
+  spawnTime: 25
+  timer: 0
+  spawnDistanceEnabled: 0
+  enabled: 0
+--- !u!114 &114699939345291166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1484972144823862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa67acdf9403fdf4781c84995517a0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bear: {fileID: 1894823465303392, guid: 382444816ae10884eb827fbbdad1bffc, type: 2}
+  betterBear: {fileID: 1626332803581062, guid: 04d79c20f570db348b467e4377b0cea9, type: 2}
+  ghost: {fileID: 1085924500501852, guid: 9d8da011c4054364b98e279efad0d4ce, type: 2}
+  barrel: {fileID: 1568613351075934, guid: bb71bbd4db709804b8833bb9985cb97a, type: 2}
+  mine: {fileID: 1316162061326510, guid: 2626042519ab1d14f84ca9ee5868f06d, type: 2}
+  energyPickup: {fileID: 1384344383301446, guid: a2f5029a0be671946a28ae92c7e6fa3a,
+    type: 2}
+  healthPickup: {fileID: 1874634713792400, guid: 7754c7014a8b70941991ec894165d3ee,
+    type: 2}
+  bearRate: 50
+  betterBeartRate: 20
+  ghostRate: 0
+  barrelRate: 0
+  mineRate: 0
+  energyPickupRate: 0
+  healthPickupRate: 0
+  spawnChance: 100
+  spawnTime: 25
+  timer: 0
+  spawnDistanceEnabled: 0
+  enabled: 0
 --- !u!120 &120711103034892648
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -1090,7 +1214,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1655609848
+  randomSeed: 922415516
   InitialModule:
     serializedVersion: 3
     enabled: 1
