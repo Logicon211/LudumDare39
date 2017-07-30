@@ -18,9 +18,9 @@ public class BossEnemySpawner : MonoBehaviour {
 
 
 	void Update() {
-        GameObject[] pickupCheck = GameObject.FindGameObjectsWithTag("Energy");
+        GameObject[] pickupCheck = GameObject.FindGameObjectsWithTag("Enemy");
 
-        if (pickupCheck.Length != 0)
+        if (pickupCheck.Length != 2)
         {
             Debug.Log("I'm still running!");
         }

@@ -6,12 +6,13 @@ public class BossPickupSpawner : MonoBehaviour {
 
     public GameObject energyPack;
 
-    bool spawnRight = true;
-    public float spawnDistance = 65.0f;
+    public float spawnDistance = 50.0f;
+    public float spawnerCurrent = 0;
+    public bool reversing = false;
 
 	// Use this for initialization
 	void Start () {
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -24,20 +25,24 @@ public class BossPickupSpawner : MonoBehaviour {
 
         if (pickupCheck.Length != 0) {
 			
-		} else {
+		} 
+    else {
 
-            if (spawnRight == true)
+            if (spawnerCurrent <= 150 && reversing == false)
             {
-                Vector3 newPosition = transform.position;
-                newPosition.x += spawnDistance;
-                Instantiate(energyPack, newPosition, Quaternion.identity);
-                spawnRight = false;
+                spawnerCurrent += spawnDistance;
+            }
+            else if (spawnerCurrent > 0 && reversing == true)
+            {
+                spawnerCurrent -= spawnDistance;
             }
             else
             {
-                Instantiate(energyPack, transform.position, Quaternion.identity);
-                spawnRight = true;
+                reversing = !reversing;
+            }
+                Vector3 newPosition = transform.position;
+                newPosition.x += spawnerCurrent;
+                Instantiate(energyPack, newPosition, Quaternion.identity);
             }
 		}
 	}
-}
