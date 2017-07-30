@@ -29,10 +29,14 @@ public class GhostEnemy : MonoBehaviour, IDamagable {
 	private AudioSource AS;
 	private Animator anim;
 
+	public AudioClip shootSound;
+	public AudioClip hurtSound;
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		RB = GetComponent<Rigidbody2D>();
+		AS = GetComponent<AudioSource>();
 	}
 
 	void Awake ()
@@ -85,6 +89,8 @@ public class GhostEnemy : MonoBehaviour, IDamagable {
 
 				inFiringAnimation = false;
 				firing = false;
+
+				AS.PlayOneShot (shootSound);
 			}
 		}
 
