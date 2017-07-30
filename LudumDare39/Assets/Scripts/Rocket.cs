@@ -147,7 +147,7 @@ public class Rocket : MonoBehaviour, IProjectile {
 					if (level.mapTiles[centerX + x,centerY + y] != null) {
 						float dmgMod = 1 - ((float)(x * x + y * y) / (float)(radius*radius));
 						int damageToTile = Mathf.RoundToInt(damage * dmgMod);
-						level.mapTiles [centerX + x, centerY + y].TakeDamage (damageToTile);
+						level.mapTiles [centerX + x, centerY + y].TakeDamage (damageToTile, false);
 					}
 				}
 			}

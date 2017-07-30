@@ -69,10 +69,10 @@ public class MapTile : MonoBehaviour {
 		Destroy (this.gameObject);
 	}
 
-	public virtual void TakeDamage(int damage) {
+	public virtual void TakeDamage(int damage, bool refreshColliderIfDestroyed) {
 		HP = HP - damage;
 		if (HP <= 0) {
-			DestroyTile (true);
+			DestroyTile (refreshColliderIfDestroyed);
 		} else {
 			float healthPercentage = ((float)HP / (float)maxHP) * 100;
 			if (healthPercentage > 66) {

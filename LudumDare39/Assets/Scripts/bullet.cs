@@ -45,7 +45,9 @@ public class bullet : MonoBehaviour, IProjectile {
 
 		Instantiate (hitEffect, this.transform.position, Quaternion.Inverse(Quaternion.identity));
 
-		level.mapTiles [mapTile.x, mapTile.y].TakeDamage (damageToTile);
+		if (level.mapTiles [mapTile.x, mapTile.y] != null) {
+			level.mapTiles [mapTile.x, mapTile.y].TakeDamage (damageToTile, true);
+		}
 
 		//refresh colliders this is probably to slow to put in every hit
 		//level.refreshCollidersOnOuterTiles();
