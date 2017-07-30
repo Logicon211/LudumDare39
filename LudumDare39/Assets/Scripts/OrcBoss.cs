@@ -20,6 +20,7 @@ public class OrcBoss: MonoBehaviour, IDamagable
     public float decayOriginal;
     private float speedOriginal;
     private bool decayIncreased = false;
+    public float jumpBack = 10.0f;
 
 
     void Start ()
@@ -67,10 +68,14 @@ public class OrcBoss: MonoBehaviour, IDamagable
                 {
                     if (lookRight == false)
                     {
+                        Vector3 jumpBackPosition = transform.position;
+                        jumpBackPosition.x += jumpBack;
+                        transform.position = jumpBackPosition;
                         Vector3 theScale = transform.localScale;
                         theScale.x *= -1;
                         transform.localScale = theScale;
                         lookRight = true;
+                    
                     }
                     transform.position = transform.position + (new Vector3(-speed, 0f, 0f) * Time.deltaTime);
                     var p = transform.position;
@@ -81,6 +86,9 @@ public class OrcBoss: MonoBehaviour, IDamagable
                 {
                     if (lookRight == true)
                     {
+                        Vector3 jumpBackPosition = transform.position;
+                        jumpBackPosition.x -= jumpBack;
+                        transform.position = jumpBackPosition;
                         Vector3 theScale = transform.localScale;
                         theScale.x *= -1;
                         transform.localScale = theScale;
