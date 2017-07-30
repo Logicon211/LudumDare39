@@ -83,9 +83,9 @@ MonoBehaviour:
   level: {fileID: 0}
   maxHP: 10
   HP: 10
-  undamagedSprite: {fileID: 21300000, guid: bfea1675669386d44a26549bf2782267, type: 3}
-  dingedSprite: {fileID: 21300000, guid: 8d06d2a382205944688cd150d92dcef6, type: 3}
-  damagedSprite: {fileID: 21300000, guid: 0661758911823d444b3524c831a6464a, type: 3}
+  undamagedSprite: {fileID: 21300000, guid: 743de5eadd9622740b83fd6d5d74b9c8, type: 3}
+  dingedSprite: {fileID: 21300000, guid: e8fe1e72882d5b146ab0c9361a10b374, type: 3}
+  damagedSprite: {fileID: 21300000, guid: d8c914e3b1afe7e42a0ecf0f20d76995, type: 3}
 --- !u!212 &212000010510154134
 SpriteRenderer:
   m_ObjectHideFlags: 1
