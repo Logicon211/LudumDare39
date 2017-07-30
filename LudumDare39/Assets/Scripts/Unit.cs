@@ -40,6 +40,7 @@ public class Unit : MonoBehaviour, IDamagable {
 	private bool isDead = false;
 
 	public AudioClip energyDepletedDeath;
+	public AudioClip healthDepletedDeath;
 
     //A few variables related to the final boss fight
     public bool isInvincible = false;
@@ -650,6 +651,14 @@ public class Unit : MonoBehaviour, IDamagable {
 			//Disable player sprite and scripts. Maybe play an explosion
 			SpriteRenderer renderer = GetComponent<SpriteRenderer>();
 			renderer.enabled = false;
+
+			GameObject gunArms = transform.Find ("RifleWeapon").gameObject;
+			gunArms.GetComponent<SpriteRenderer> ().enabled = false;
+
+			if (!isDead) {
+				hurtNoise.PlayOneShot (healthDepletedDeath);
+			}
+
 			this.isDead = true;
 
 			StartCoroutine("LoseGame");
@@ -682,7 +691,6 @@ public class Unit : MonoBehaviour, IDamagable {
 
 			//SpriteRenderer renderer = GetComponent<SpriteRenderer>();
 			//renderer.enabled = false;
-			Debug.Log(playerEnergy);
 			if (!isDead) {
 				hurtNoise.PlayOneShot (energyDepletedDeath);
 			}
