@@ -183,7 +183,6 @@ GameObject:
   - component: {fileID: 4492081289404148}
   - component: {fileID: 61299696263587330}
   - component: {fileID: 95889969963700242}
-  - component: {fileID: 114844898729422800}
   m_Layer: 0
   m_Name: ALT_Final_Boss
   m_TagString: Untagged
@@ -257,8 +256,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965119141757292}
   m_LocalRotation: {x: -0.043619405, y: 0, z: 0, w: 0.9990483}
-  m_LocalPosition: {x: 966.8, y: 153.9, z: -1.1}
-  m_LocalScale: {x: -6, y: 10, z: 1}
+  m_LocalPosition: {x: 102.1, y: 172, z: -0.7}
+  m_LocalScale: {x: -4, y: 6, z: 1}
   m_Children:
   - {fileID: 4314271832780326}
   m_Father: {fileID: 0}
@@ -350,7 +349,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965119141757292}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -375,7 +374,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1259456054300220}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -403,7 +402,7 @@ Animator:
   m_GameObject: {fileID: 1965119141757292}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 901215ee198e6274988c4dec8f97ef95, type: 2}
+  m_Controller: {fileID: 9100000, guid: 719107eefacccf744a810a58b85d8a8c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -422,25 +421,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacc5ab09d7d6cc468fa75ddc690db56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114844898729422800
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1965119141757292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec3961d7e95db2478c2c37478e38b57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathEffect: {fileID: 156964, guid: 15ff87b027731ae4cbf07bb092fba046, type: 2}
-  ground:
-    serializedVersion: 2
-    m_Bits: 256
-  speed: 4
-  lookRight: 1
-  maxDistance: 200
-  giantHealth: 30
 --- !u!212 &212027156702645516
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -810,7 +790,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300010, guid: 8a72ffba25c088349984b59bd2159399, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.5836796, b: 0.5398327, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
