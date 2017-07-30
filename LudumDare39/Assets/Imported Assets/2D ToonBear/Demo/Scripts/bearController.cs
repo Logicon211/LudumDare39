@@ -42,6 +42,8 @@ public class bearController : MonoBehaviour, IDamagable {
 	public int width = 3;
 	public int height = 6;
 
+	private int originalWidth;
+
 	public float maxDistance = 100f;
 
 	public GameObject deathEffect;
@@ -108,6 +110,8 @@ public class bearController : MonoBehaviour, IDamagable {
 		mPath = new List<Vector2i> ();
 		pathTimer = 0;
 		AS = GetComponent<AudioSource>();
+
+		originalWidth = width;
 	}
 
 
@@ -503,6 +507,18 @@ public class bearController : MonoBehaviour, IDamagable {
 			(short)maxJumpHeight,
 			1);
 
+		//***** Wierd pathfinding fix so that dudes don't get stuck too long
+		while (path == null && width > 0) {
+			width--;
+			path =  mLevel.mPathFinder.FindPath(
+				startTile, 
+				destination,
+				width,
+				height,
+				(short)maxJumpHeight,
+				1);
+		}
+
 		if (path != null && path.Count > 1)
 		{
 			for (var i = path.Count - 1; i >= 0; --i)
@@ -514,6 +530,12 @@ public class bearController : MonoBehaviour, IDamagable {
 
 			mFramesOfJumping = GetJumpFramesForNode(0);
 		}
+
+		//reset width?
+		if (width != originalWidth) {
+			width = originalWidth;
+		}
+
 		//Debug path
 		DrawPathLines(mPath);
 	}
@@ -690,11 +712,6 @@ public class bearController : MonoBehaviour, IDamagable {
 			if (projectile != null) {
 				projectile.OnActorHit ();
 				damage (projectile.getDamageValue ());
-				//bearVitality -= projectile.getDamageValue ();
-
-
-
-
 				AS.Play ();
 			}
 
