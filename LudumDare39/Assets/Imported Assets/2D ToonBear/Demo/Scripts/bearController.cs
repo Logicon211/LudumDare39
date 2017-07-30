@@ -223,7 +223,6 @@ public class bearController : MonoBehaviour, IDamagable {
 						ChangeState (BotState.Punch);
 					}
 				} else if (pathTimer < 0 && grounded) {
-					Debug.Log ("Running Moveto");
 					MoveTo (new Vector2i (((int)(player.transform.position.x)), ((int)(player.transform.position.y)) - 2));
 					pathTimer = 10;
 
