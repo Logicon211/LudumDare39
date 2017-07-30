@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1316162061326510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 472.8, y: 392.3, z: 0}
+  m_LocalPosition: {x: 210.6, y: 78.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4370550731275492}
@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 156964, guid: 15ff87b027731ae4cbf07bb092fba046, type: 2}
-  blastRadius: 6
-  damageValue: 10
+  blastRadius: 10
+  damageValue: 20
 --- !u!212 &212793243445716006
 SpriteRenderer:
   m_ObjectHideFlags: 1

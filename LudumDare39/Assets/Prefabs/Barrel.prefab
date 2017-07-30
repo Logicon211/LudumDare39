@@ -129,9 +129,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 156964, guid: 15ff87b027731ae4cbf07bb092fba046, type: 2}
-  blastRadius: 8
+  blastRadius: 20
   hurtsPlayer: 0
-  damageValue: -10
+  damageValue: 10
 --- !u!212 &212456766345384268
 SpriteRenderer:
   m_ObjectHideFlags: 1

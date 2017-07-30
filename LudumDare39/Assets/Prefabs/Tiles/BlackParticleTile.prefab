@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010086179936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57.921696, y: 93.784546, z: 0}
+  m_LocalPosition: {x: 199.43767, y: 84.955414, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,9 +53,20 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: b4cfd979f3b1adc4da4dc013f6c5e13e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &114000014138448540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,8 +81,8 @@ MonoBehaviour:
   x: 0
   y: 0
   level: {fileID: 0}
-  maxHP: 50
-  HP: 50
+  maxHP: 10
+  HP: 10
   undamagedSprite: {fileID: 21300000, guid: bfea1675669386d44a26549bf2782267, type: 3}
   dingedSprite: {fileID: 21300000, guid: 8d06d2a382205944688cd150d92dcef6, type: 3}
   damagedSprite: {fileID: 21300000, guid: 0661758911823d444b3524c831a6464a, type: 3}
@@ -105,8 +116,15 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bfea1675669386d44a26549bf2782267, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
