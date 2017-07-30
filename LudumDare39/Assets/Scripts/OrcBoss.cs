@@ -51,12 +51,13 @@ public class OrcBoss: MonoBehaviour, IDamagable
         }
 
         /*If not in an attack animation and player is in range, start one*/
-			if (!this.animator.GetCurrentAnimatorStateInfo (0).IsName ("attack") && playerDist < attackRange) {
+			if (!this.animator.GetCurrentAnimatorStateInfo (0).IsName ("attack") && playerDist < attackRange && 
+            (((player.transform.position.x < this.transform.position.x) && lookRight == true) || ((player.transform.position.x > this.transform.position.x) && lookRight == false))) {
                 speed = 0.0f;
 				animator.SetTrigger ("attack");
 			}
             /*If not in an attack animation and player is out of range, get over there!*/
-            else if (!this.animator.GetCurrentAnimatorStateInfo(0).IsName("attack") && playerDist > attackRange)
+            else if (!this.animator.GetCurrentAnimatorStateInfo(0).IsName("attack") )//&& playerDist > attackRange)
             {
                 speed = speedOriginal;
                 animator.SetTrigger("idle");         
