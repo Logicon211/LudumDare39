@@ -8,6 +8,9 @@ public class bullet : MonoBehaviour, IProjectile {
 	int damageToPlayer = 1;
 	Renderer VisibleChecker;
 	// Use this for initialization
+
+	public GameObject hitEffect;
+
 	void Start () {
 		VisibleChecker= GetComponent<Renderer> ();
 	}
@@ -25,6 +28,7 @@ public class bullet : MonoBehaviour, IProjectile {
 
 	public void OnActorHit() {
 		//Destory the projectile
+		Instantiate (hitEffect, this.transform.position, Quaternion.Inverse(Quaternion.identity));//Vector2.down);//Quaternion.identity);//Quaternion.Euler(Quaternion.identity));
 		Destroy (this.gameObject);
 	}
 
@@ -38,7 +42,8 @@ public class bullet : MonoBehaviour, IProjectile {
 
 	public void OnMapTileHit (MapTile mapTile) {
 		Level level = mapTile.level;
-		//Start destroying a radius
+
+		Instantiate (hitEffect, this.transform.position, Quaternion.Inverse(Quaternion.identity));
 
 		level.mapTiles [mapTile.x, mapTile.y].TakeDamage (damageToTile);
 
