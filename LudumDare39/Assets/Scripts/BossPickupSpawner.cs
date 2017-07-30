@@ -6,7 +6,7 @@ public class BossPickupSpawner : MonoBehaviour {
 
     public GameObject energyPack;
 
-    public float spawnDistance = 50.0f;
+    public float spawnDistance = 40.0f;
     public float spawnerCurrent = 0;
     public bool reversing = false;
 
@@ -28,7 +28,7 @@ public class BossPickupSpawner : MonoBehaviour {
 		} 
     else {
 
-            if (spawnerCurrent <= 150 && reversing == false)
+            if (spawnerCurrent <= 120 && reversing == false)
             {
                 spawnerCurrent += spawnDistance;
             }

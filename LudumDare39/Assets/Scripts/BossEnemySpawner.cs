@@ -52,13 +52,13 @@ public class BossEnemySpawner : MonoBehaviour {
                 {
                     Vector3 newPosition = transform.position;
                     newPosition.x += spawnDistance;
-                    Instantiate(ghost, newPosition, Quaternion.identity);
+                    Instantiate(bear, newPosition, Quaternion.identity);
                     lastSpawnedWasBear = true;
                 }
                 else
                 {
                     Vector3 newPosition = transform.position;
-                    Instantiate(ghost, newPosition, Quaternion.identity);
+                    Instantiate(bear, newPosition, Quaternion.identity);
                     lastSpawnedWasBear = true;
                 }
             }
