@@ -10,6 +10,7 @@ public class Unit : MonoBehaviour, IDamagable {
 
 	private AudioSource jumpNoise;
 	private AudioSource hurtNoise;
+    private AudioSource victoryNoise;
 
     public bool facingRight = true;
 	public float speed = 10f;
@@ -79,7 +80,8 @@ public class Unit : MonoBehaviour, IDamagable {
 
 	// Use this for initialization
 	void Start () {
-		GameObject child = transform.Find("PainNoise").gameObject;
+        victoryNoise = GameObject.Find("VictorySound").GetComponent<AudioSource>();
+        GameObject child = transform.Find("PainNoise").gameObject;
 		hurtNoise = child.GetComponent<AudioSource>();
 
 		lineRenderer = GetComponent<LineRenderer> ();
@@ -674,11 +676,10 @@ public class Unit : MonoBehaviour, IDamagable {
 		if (playerEnergy > 100 && inBossFight == false) {
 			playerEnergy = 100f;
 		}
-        else if (playerEnergy >= victoryTotal)
+        else if (playerEnergy >= victoryTotal && inBossFight == true)
         {
             isInvincible = true;
             this.gameObject.GetComponent<ParticleSystem>().enableEmission = true;
-            AudioSource victoryNoise = GetComponent<AudioSource>();
             victoryNoise.Play();
             speed = 0.0f;
             jumpSpeed = 0.0f;
@@ -710,7 +711,7 @@ public class Unit : MonoBehaviour, IDamagable {
 	}
 
 	IEnumerator WinGame() {			
-		yield return new WaitForSeconds(6);  // or however long you want it to wait
+		yield return new WaitForSeconds(2);  // or however long you want it to wait
 		Application.LoadLevel("VictoryScreen");
 	}
 
