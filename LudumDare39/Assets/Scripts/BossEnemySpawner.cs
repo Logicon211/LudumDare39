@@ -7,8 +7,9 @@ public class BossEnemySpawner : MonoBehaviour {
     bool spawnRight = false;
     public GameObject bear;
     public GameObject ghost;
-    public float spawnDistance1 = 66.0f;
+    public float spawnDistance = 180.0f;
     private float initialPosition;
+    private bool lastSpawnedWasBear = false;
 
     // Use this for initialization
     void Start () {
@@ -20,32 +21,46 @@ public class BossEnemySpawner : MonoBehaviour {
 	void Update() {
         GameObject[] pickupCheck = GameObject.FindGameObjectsWithTag("Enemy");
 
-        if (pickupCheck.Length != 2)
+        if (pickupCheck.Length >= 2)
         {
-            Debug.Log("I'm still running!");
+            
         }
         else
         {
-
-            if (player.transform.position.x < (initialPosition + 35))
+            if (lastSpawnedWasBear == true)
             {
-                Vector3 newPosition = transform.position;
-                newPosition.x += spawnDistance1;
-                Instantiate(bear, newPosition, Quaternion.identity);
-                newPosition.x += 2.0f;
-                newPosition.y += 16.0f;
-                Instantiate(ghost, newPosition, Quaternion.identity);
 
-                spawnRight = false;
+                if (player.transform.position.x < (initialPosition + 100))
+                {
+                    Vector3 newPosition = transform.position;
+                    newPosition.x += spawnDistance;
+                    newPosition.y += 20.0f;
+                    Instantiate(ghost, newPosition, Quaternion.identity);
+                    lastSpawnedWasBear = false;
+                }
+                else
+                {
+                    Vector3 newPosition = transform.position;
+                    newPosition.y += 20.0f;
+                    Instantiate(ghost, newPosition, Quaternion.identity);
+                    lastSpawnedWasBear = false;
+                }
             }
             else
             {
-                Vector3 newPosition = transform.position;
-                Instantiate(bear, newPosition, Quaternion.identity);
-                newPosition.x -= 2.0f;
-                newPosition.y += 16.0f;
-                Instantiate(ghost, newPosition, Quaternion.identity);
-                spawnRight = true;
+                if (player.transform.position.x < (initialPosition + 100))
+                {
+                    Vector3 newPosition = transform.position;
+                    newPosition.x += spawnDistance;
+                    Instantiate(ghost, newPosition, Quaternion.identity);
+                    lastSpawnedWasBear = true;
+                }
+                else
+                {
+                    Vector3 newPosition = transform.position;
+                    Instantiate(ghost, newPosition, Quaternion.identity);
+                    lastSpawnedWasBear = true;
+                }
             }
         }
     }

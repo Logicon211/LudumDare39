@@ -47,6 +47,7 @@ public class Unit : MonoBehaviour, IDamagable {
     public bool isInvincible = false;
     public bool inBossFight = false;
     public float victoryTotal = 200.0f;
+    private bool winnerWinner = false;
 
 
 	//Bot code. May move out of here?
@@ -216,16 +217,20 @@ public class Unit : MonoBehaviour, IDamagable {
 	}
 
 	void Flip() {
-		facingRight = !facingRight;
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+        if (!winnerWinner)
+        {
+            facingRight = !facingRight;
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
 
-		foreach (Transform child in transform) {
-			Vector3 childScale = child.localScale;
-			childScale.x *= -1;
-			child.localScale = childScale;
-		}
+            foreach (Transform child in transform)
+            {
+                Vector3 childScale = child.localScale;
+                childScale.x *= -1;
+                child.localScale = childScale;
+            }
+        }
 	}
 
 	//******Bot Functions below******
@@ -678,13 +683,20 @@ public class Unit : MonoBehaviour, IDamagable {
 		if (playerEnergy > 100 && inBossFight == false) {
 			playerEnergy = 100f;
 		}
-        else if (playerEnergy >= victoryTotal && inBossFight == true)
+        else if (playerEnergy >= victoryTotal && inBossFight == true && winnerWinner == false)
         {
             isInvincible = true;
+            winnerWinner = true;
             this.gameObject.GetComponent<ParticleSystem>().enableEmission = true;
+            if (facingRight != true)
+            {
+                Vector3 theScale = this.gameObject.GetComponent<ParticleSystem>().transform.localScale;
+                theScale.x *= -1;
+                this.gameObject.GetComponent<ParticleSystem>().transform.localScale = theScale;
+            }
+            speed = 0;
+            jumpSpeed = 0;
             victoryNoise.Play();
-            speed = 0.0f;
-            jumpSpeed = 0.0f;
             WinGame();
         }
 
