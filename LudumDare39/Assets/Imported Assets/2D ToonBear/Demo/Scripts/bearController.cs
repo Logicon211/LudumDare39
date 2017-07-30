@@ -31,6 +31,7 @@ public class bearController : MonoBehaviour, IDamagable {
 
 	private Transform groundCheck1;
 	private Transform groundCheck2;
+	private Transform unstuckGroundCheck;
 	public float groundTimer = 0f;
 
 	public static float MAX_GROUNDED_TIMER = 2f;
@@ -91,6 +92,7 @@ public class bearController : MonoBehaviour, IDamagable {
 		RB = GetComponent<Rigidbody2D>();
 		groundCheck1 = transform.Find ("groundCheck1");
 		groundCheck2 = transform.Find ("groundCheck2");
+		unstuckGroundCheck = transform.Find ("unstuckGroundCheck");
 		mCurrentBotState = BotState.None;
 		mFramesOfJumping = 0;
 		mStuckFrames = 0;
@@ -124,6 +126,12 @@ public class bearController : MonoBehaviour, IDamagable {
 			groundTimer = 0f;
 		}
 
+		//unstuck if jammed in the ground
+		bool stuckInGround = Physics2D.Linecast(transform.position, unstuckGroundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+
+		if (stuckInGround) {
+			this.transform.position = new Vector2 (this.transform.position.x, this.transform.position.y + 3f);
+		}
 
 		//grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
 		anim.SetBool ("ground", grounded);
