@@ -39,6 +39,8 @@ public class Unit : MonoBehaviour, IDamagable {
 
 	private bool isDead = false;
 
+	public AudioClip energyDepletedDeath;
+
 
 
 
@@ -667,7 +669,14 @@ public class Unit : MonoBehaviour, IDamagable {
 
 			//SpriteRenderer renderer = GetComponent<SpriteRenderer>();
 			//renderer.enabled = false;
+			Debug.Log(playerEnergy);
+			if (!isDead) {
+				hurtNoise.PlayOneShot (energyDepletedDeath);
+			}
+				
+
 			this.isDead = true;
+
 
 			//Maybe a different message about running out of power?
 			StartCoroutine("LoseGame");

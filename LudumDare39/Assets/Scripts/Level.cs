@@ -74,8 +74,9 @@ public class Level : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		//Commenting to disable Pathing for player here
 		//right mouse button click
-		if(Input.GetMouseButtonDown(1)) {
+		/*if(Input.GetMouseButtonDown(1)) {
 
 			Vector3 mouseScreenPosition = Camera.main.ScreenToWorldPoint(new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 0));
 			Vector2 mousePosition = new Vector2(mouseScreenPosition.x, mouseScreenPosition.y);
@@ -114,15 +115,15 @@ public class Level : MonoBehaviour {
 //			}
 
 
-			if (foundClick/* && foundPlayer*/) {
+			if (foundClick/* && foundPlayer*///) {
 				//Start is never used
-				Vector2i start = new Vector2i(Convert.ToInt32(playerPosition.x), Convert.ToInt32(playerPosition.y));
+				/*Vector2i start = new Vector2i(Convert.ToInt32(playerPosition.x), Convert.ToInt32(playerPosition.y));
 				Vector2i end = new Vector2i(Convert.ToInt32(clickPosition.x), Convert.ToInt32(clickPosition.y));
 				//List<Vector2i> path = mPathFinder.FindPath (start, end, player.GetComponent<Unit>().width, player.GetComponent<Unit>().height, (short)player.GetComponent<Unit>().maxJumpHeight);
 				//DrawPathLines(path);
 				player.GetComponent<Unit>().MoveTo(end);
 			}
-		}
+		}*/
 	}
 
 	void FixedUpdate() {
