@@ -46,6 +46,8 @@ public class bearController : MonoBehaviour, IDamagable {
 
 	public float maxDistance = 100f;
 
+	public int bearDamage = 10;
+
 	public GameObject deathEffect;
 	private GameObject player;
 
@@ -302,7 +304,7 @@ public class bearController : MonoBehaviour, IDamagable {
 				punchCooldown = 50;
 
 				Unit scriptin = player.GetComponent<Unit>();
-				scriptin.playerHealthChange (-1);
+				scriptin.playerHealthChange (-bearDamage);
 				PunchNoise.Play();
 			}
 			break;
@@ -536,7 +538,7 @@ public class bearController : MonoBehaviour, IDamagable {
 		}
 
 		//Debug path
-		DrawPathLines(mPath);
+		//DrawPathLines(mPath);
 	}
 
 	bool IsOnGroundAndFitsPos(Vector2i pos)

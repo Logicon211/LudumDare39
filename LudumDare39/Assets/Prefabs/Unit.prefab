@@ -403,7 +403,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1117093004101296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.91, y: 0.13, z: 0}
+  m_LocalPosition: {x: 2.48, y: 0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4995715914518970}
@@ -1058,10 +1058,10 @@ MonoBehaviour:
   spawnChance: 100
   spawnTime: 25
   timer: 0
-  spawnDistanceEnabled: 0
+  spawnDistanceEnabled: 300
   spawnAfterPlayerPasses: 0
   enabled: 0
-  ampUpTime: 2
+  ampUpTime: 1.5
 --- !u!114 &114552560370673422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1092,10 +1092,10 @@ MonoBehaviour:
   spawnChance: 100
   spawnTime: 25
   timer: 0
-  spawnDistanceEnabled: 0
+  spawnDistanceEnabled: 300
   spawnAfterPlayerPasses: 0
   enabled: 0
-  ampUpTime: 2
+  ampUpTime: 1.5
 --- !u!114 &114699939345291166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1126,10 +1126,10 @@ MonoBehaviour:
   spawnChance: 100
   spawnTime: 25
   timer: 0
-  spawnDistanceEnabled: 0
+  spawnDistanceEnabled: 300
   spawnAfterPlayerPasses: 0
   enabled: 0
-  ampUpTime: 2
+  ampUpTime: 1.5
 --- !u!120 &120711103034892648
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -1282,7 +1282,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 403966190
+  randomSeed: 1132176637
   InitialModule:
     serializedVersion: 3
     enabled: 1
