@@ -706,7 +706,7 @@ public class Unit : MonoBehaviour, IDamagable {
            // {
                 energySlider.gameObject.GetComponent<ParticleSystem>().enableEmission = true;
            // }
-            energySlider.gameObject.GetComponent<ParticleSystem>().emissionRate = ((playerEnergy - 100) / 10);
+            energySlider.gameObject.GetComponent<ParticleSystem>().emissionRate = ((playerEnergy - 100) / 7);
         }
         else if (playerEnergy < 100 && inBossFight == true)
         {
