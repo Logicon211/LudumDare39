@@ -632,7 +632,7 @@ MonoBehaviour:
   jump: 0
   speed: 20
   jumpSpeed: 20
-  bearVitality: 5
+  bearVitality: 4
   HealthPickup: {fileID: 1874634713792400, guid: 7754c7014a8b70941991ec894165d3ee,
     type: 2}
   EnergyPickup: {fileID: 1384344383301446, guid: a2f5029a0be671946a28ae92c7e6fa3a,
