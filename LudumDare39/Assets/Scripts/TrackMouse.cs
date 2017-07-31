@@ -110,7 +110,7 @@ public class TrackMouse : MonoBehaviour {
 				projectileLaunched.transform.Rotate (0, 0, Random.Range (-5, 5));
 				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * velocity;
 				onCooldown = true;
-				cooldown = 0.3f;
+				cooldown = 0.2f;
 			} else if (weapon == 2) {
 				anim.SetTrigger ("Shoot");
 
