@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class MineExplodeOnContact : MonoBehaviour {
     private GameObject player;
-    private float playerDist;
-    private Rigidbody2D RB;
     public GameObject deathEffect;
     public float blastRadius = 6.0f;
     public int damageValue = 10;
-    // Use this for initialization
+	bool blewUp;
+	// Use this for initialization
     void Start () {
+		blewUp = false;
         player = GameObject.FindGameObjectWithTag("Player");
-        RB = GetComponent<Rigidbody2D>();
     }
 	
 	// Update is called once per frame
@@ -22,32 +21,23 @@ public class MineExplodeOnContact : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-
-		bool blewUp = false;
-
-        playerDist = Vector3.Distance(RB.transform.position, (player.transform.position));
-        if (playerDist < blastRadius)
-        {
-            IDamagable scriptin = player.GetComponent<IDamagable>();
-            scriptin.damage(damageValue);
-
+		if (!(col.gameObject.tag == "ground")) {
 			blewUp = true;
-        }
-        foreach (GameObject thing in GameObject.FindGameObjectsWithTag("Enemy"))
-        {
+        
+			if (Vector3.Distance (transform.position, (player.transform.position)) < blastRadius) {
+				IDamagable scriptin = player.GetComponent<IDamagable> ();
+				scriptin.damage (damageValue);
 
-            float currentDist = Vector3.Distance(RB.transform.position, (thing.transform.position));
-            if (currentDist < blastRadius)
-            {
-                IDamagable scriptin = thing.GetComponent<IDamagable>();
-                scriptin.damage(damageValue);
+			}
+			foreach (GameObject thing in GameObject.FindGameObjectsWithTag("Enemy")) {
 
-				blewUp = true;
-            }
+				if (Vector3.Distance (transform.position, (thing.transform.position)) < blastRadius) {
+					IDamagable scriptin = thing.GetComponent<IDamagable> ();
+					scriptin.damage (damageValue);
+				}
 
-        }
+			}
 
-		if (blewUp) {
 			Instantiate (deathEffect, this.transform.position, Quaternion.identity);
         
 			//destroy tiles now
@@ -57,6 +47,14 @@ public class MineExplodeOnContact : MonoBehaviour {
 			DestroyMapTileRadius (level, mapPosition.x, mapPosition.y, (int)blastRadius);
 			//refresh colliders
 			level.refreshCollidersOnOuterTiles ();
+
+			if (col.gameObject.tag == "Rocket") {
+				IProjectile projectile = (IProjectile)col.gameObject.GetComponent (typeof(IProjectile));
+				if (projectile != null) {
+					projectile.OnActorHit ();
+				}
+
+			}
 
 			Destroy (this.gameObject);
 		}

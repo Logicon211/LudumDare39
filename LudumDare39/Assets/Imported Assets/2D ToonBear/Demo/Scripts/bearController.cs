@@ -190,7 +190,7 @@ public class bearController : MonoBehaviour, IDamagable {
 
 		if (jump) {
 			RB.velocity = new Vector2 (RB.velocity.x, jumpSpeed);
-			anim.SetBool ("Jumping", true);
+			//anim.SetBool ("Jumping", true);
 			jump = false; //reset the jump flag so it doesn't happen again immediately
 			groundTimer = MAX_GROUNDED_TIMER;//reset groundTimer to MAX_GROUNDED_TIMER so that it registers that we've used our 1 jump after stepping off a ledge
 		}
