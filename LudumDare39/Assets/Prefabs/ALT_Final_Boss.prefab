@@ -719,7 +719,7 @@ MonoBehaviour:
   attackRange: 37
   giantHealth: 0
   decayRadius: 25
-  decayMultiplier: 10
+  decayMultiplier: 6
   decayOriginal: 0
   jumpBack: 10
 --- !u!198 &198674903688258740

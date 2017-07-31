@@ -69,6 +69,9 @@ public class Rocket : MonoBehaviour, IProjectile {
 			Instantiate (explosionEffect, this.transform.position, Quaternion.identity);
 			Destroy (this.gameObject);
 		}
+		if(col.gameObject.tag.Equals("EnemyBullet")) {
+			Destroy (this.gameObject);
+		}
 	}
 
 	public void DestroyMapTileRadiusAlgorithm(Level level, int centerX, int centerY, int radius)
