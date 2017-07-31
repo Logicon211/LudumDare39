@@ -226,7 +226,7 @@ public class bearController : MonoBehaviour, IDamagable {
 					}
 				} else if (pathTimer < 0 && grounded) {
 					MoveTo (new Vector2i (((int)(player.transform.position.x)), ((int)(player.transform.position.y)) - 2));
-					pathTimer = 10;
+					pathTimer = 40;
 
 				}
 			}

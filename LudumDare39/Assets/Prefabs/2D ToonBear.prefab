@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 58811441298190660}
   - component: {fileID: 120680571955918622}
   - component: {fileID: 82051174898326612}
+  - component: {fileID: 60929112784069258}
   m_Layer: 9
   m_Name: 2D ToonBear
   m_TagString: Enemy
@@ -146,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1894823465303392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 417.28217, y: 149.05649, z: 0}
+  m_LocalPosition: {x: 423.75424, y: 186.54758, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 4703303259228264}
@@ -211,7 +212,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b4cfd979f3b1adc4da4dc013f6c5e13e, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -243,11 +244,26 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.38, y: -1.05}
+  m_Offset: {x: 0, y: -1.05}
   serializedVersion: 2
   m_Radius: 0.2012154
 --- !u!58 &58817862570924894
 CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1894823465303392}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.38, y: -1.05}
+  serializedVersion: 2
+  m_Radius: 0.2012154
+--- !u!60 &60929112784069258
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -258,9 +274,68 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.38, y: -1.05}
-  serializedVersion: 2
-  m_Radius: 0.2012154
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.56, y: 2.56}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.19999999, y: -1.03}
+      - {x: -0.13, y: -1}
+      - {x: -0.031913757, y: -1.2094574}
+      - {x: 0.17999999, y: -0.96999997}
+      - {x: -0.019958496, y: -1.2066803}
+      - {x: -0.019958496, y: -1.2257271}
+      - {x: -0.026504517, y: -1.2166824}
+      - {x: -0.01650238, y: -1.2247734}
+      - {x: 0.007774353, y: -1.2180939}
+      - {x: 0.5604553, y: -0.73291016}
+      - {x: 0.44, y: -0.82}
+      - {x: 0.31, y: -0.64}
+      - {x: 0.17999999, y: -0.52}
+      - {x: 0.21, y: -0.29}
+      - {x: 0.19999999, y: -0.19999999}
+      - {x: 0.51, y: -0.22}
+      - {x: 0.57, y: -0.31}
+      - {x: 0.61, y: -0.31}
+      - {x: 0.71999997, y: -0.24}
+      - {x: 0.72999996, y: -0.19999999}
+      - {x: 0.72999996, y: -0.08}
+      - {x: 0.65, y: 0.01}
+      - {x: 0.51, y: 0.06}
+      - {x: 0.26999998, y: 0.089999996}
+      - {x: 0.29, y: 0.24}
+      - {x: 0.21, y: 0.39}
+      - {x: 0.32, y: 0.42}
+      - {x: 0.37, y: 0.53999996}
+      - {x: 0.32999998, y: 0.66999996}
+      - {x: 0.11, y: 0.78999996}
+      - {x: 0.01, y: 0.85999995}
+      - {x: -0.11, y: 0.85999995}
+      - {x: -0.26999998, y: 0.72999996}
+      - {x: -0.29999998, y: 0.59}
+      - {x: -0.28, y: 0.52}
+      - {x: -0.38, y: 0.39}
+      - {x: -0.45, y: 0.34}
+      - {x: -0.63, y: 0.07}
+      - {x: -0.61, y: -0.089999996}
+      - {x: -0.48999998, y: -0.17}
+      - {x: -0.41, y: -0.22}
+      - {x: -0.48, y: -0.48999998}
+      - {x: -0.45999998, y: -0.78999996}
+      - {x: -0.5480881, y: -0.75481796}
+      - {x: -0.02394867, y: -1.2104568}
+      - {x: -0.0058670044, y: -1.1985512}
+      - {x: -0.016723633, y: -1.2257233}
+      - {x: -0.010299683, y: -1.1966515}
+      - {x: -0.0012359619, y: -1.1928368}
+      - {x: -0.019584656, y: -1.2152252}
 --- !u!61 &61634640430973774
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -571,6 +646,7 @@ MonoBehaviour:
   width: 6
   height: 10
   maxDistance: 100
+  bearDamage: 10
   deathEffect: {fileID: 156964, guid: 15ff87b027731ae4cbf07bb092fba046, type: 2}
 --- !u!120 &120680571955918622
 LineRenderer:
