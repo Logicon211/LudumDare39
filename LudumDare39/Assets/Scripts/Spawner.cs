@@ -51,7 +51,8 @@ public class Spawner : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (enabled == true) {
+		float playerDist = Vector3.Distance (this.transform.position, (player.transform.position));
+		if (enabled == true && playerDist <= spawnDistanceEnabled) {
 			if (timer < spawnTime) {
 				timer += Time.fixedDeltaTime;
 			} else {
@@ -98,9 +99,7 @@ public class Spawner : MonoBehaviour {
 				}
 			}
 		} else {
-			float playerDist = Vector3.Distance (this.transform.position, (player.transform.position));
-
-			Debug.Log (playerDist);
+			//playerDist = Vector3.Distance (this.transform.position, (player.transform.position));
 
 			if (!spawnAfterPlayerPasses) {
 				if (playerDist <= spawnDistanceEnabled) {

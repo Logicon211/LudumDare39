@@ -643,13 +643,16 @@ public class Unit : MonoBehaviour, IDamagable {
 				playerHealth = 100;
 			}
 		}
-
+			
 		else if (isInvincible == false){
 			//hurt
 			playerHealth+=healthIn;
-			if (!hurtNoise.isPlaying) {
-				hurtNoise.Play ();
+			if (!isDead) {
+				hurtNoise.PlayOneShot (healthDepletedDeath);
 			}
+//			if (!hurtNoise.isPlaying) {
+//				hurtNoise.Play ();
+//			}
 			//Play ow sound
 		}
 		Debug.Log ("Player health: " + playerHealth);

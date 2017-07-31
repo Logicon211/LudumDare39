@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010086179936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 388.97894, y: 153.8139, z: 0}
+  m_LocalPosition: {x: -7.3971634, y: 125.375404, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,8 +81,8 @@ MonoBehaviour:
   x: 0
   y: 0
   level: {fileID: 0}
-  maxHP: 10
-  HP: 10
+  maxHP: 15
+  HP: 15
   undamagedSprite: {fileID: 21300000, guid: ffc2771db1700d041a5ff485cf9bb014, type: 3}
   dingedSprite: {fileID: 21300000, guid: 4e4bb1b14a1dc0248b323ed0d0b9b2a5, type: 3}
   damagedSprite: {fileID: 21300000, guid: 2dec3ab60c3f9ec42895e36a074ade8b, type: 3}

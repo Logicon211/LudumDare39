@@ -39,14 +39,15 @@ public class BarrelExplodeOnImpact : MonoBehaviour {
                     }
                     
                 }
-                float playerDistance = Vector3.Distance(RB.transform.position, (player.transform.position));
-                {
-                    if (playerDistance < blastRadius)
-                    {
-                        IDamagable scriptin = player.GetComponent<IDamagable>();
-                        scriptin.damage(damageValue);
-                    }
-                }
+				if (hurtsPlayer) {
+					float playerDistance = Vector3.Distance (RB.transform.position, (player.transform.position));
+					{
+						if (playerDistance < blastRadius) {
+							IDamagable scriptin = player.GetComponent<IDamagable> ();
+							scriptin.damage (damageValue);
+						}
+					}
+				}
 
 				//destroy tiles now
 				Level level = Level.getLevel();
