@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 58407309799816778}
   - component: {fileID: 120046030069180642}
   - component: {fileID: 82263631473944270}
+  - component: {fileID: 60398555678829878}
   m_Layer: 9
   m_Name: 2D ToonBear - Polar
   m_TagString: Enemy
@@ -146,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1626332803581062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 889.0852, y: 194.38713, z: 0}
+  m_LocalPosition: {x: 437.2782, y: 183.47325, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 4241177577328400}
@@ -211,7 +212,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b4cfd979f3b1adc4da4dc013f6c5e13e, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -237,7 +238,7 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1626332803581062}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -258,9 +259,89 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.38, y: -1.05}
+  m_Offset: {x: 0, y: -1.05}
   serializedVersion: 2
   m_Radius: 0.2012154
+--- !u!60 &60398555678829878
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1626332803581062}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.56, y: 2.56}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.19999999, y: -1.03}
+      - {x: -0.13, y: -1}
+      - {x: -0.049999997, y: -0.91999996}
+      - {x: 0.17999999, y: -0.96999997}
+      - {x: 0.01108551, y: -1.1865005}
+      - {x: 0.00819397, y: -1.1912994}
+      - {x: 0.56069946, y: -0.7566681}
+      - {x: 0.454216, y: -0.22883606}
+      - {x: 0.18325043, y: -0.5190697}
+      - {x: 0.5317459, y: -0.7712822}
+      - {x: 0.19385529, y: -0.5197296}
+      - {x: 0.5389404, y: -0.7670746}
+      - {x: 0.50829315, y: -0.7776871}
+      - {x: 0.44, y: -0.82}
+      - {x: 0.31, y: -0.64}
+      - {x: 0.17999999, y: -0.52}
+      - {x: 0.21, y: -0.29}
+      - {x: 0.19999999, y: -0.19999999}
+      - {x: 0.4717102, y: -0.20723724}
+      - {x: 0.3849182, y: -0.20788956}
+      - {x: 0.45044708, y: -0.22703552}
+      - {x: 0.45833588, y: -0.21447372}
+      - {x: 0.43642426, y: -0.15532684}
+      - {x: 0.45557404, y: -0.054470062}
+      - {x: 0.47130585, y: 0.022762299}
+      - {x: 0.51, y: 0.06}
+      - {x: 0.26999998, y: 0.089999996}
+      - {x: 0.29, y: 0.24}
+      - {x: 0.21, y: 0.39}
+      - {x: 0.31, y: 0.42999998}
+      - {x: 0.37, y: 0.55}
+      - {x: 0.34, y: 0.68}
+      - {x: 0.17, y: 0.83}
+      - {x: 0.07, y: 0.90999997}
+      - {x: -0.06, y: 1.06}
+      - {x: -0.07, y: 1.06}
+      - {x: -0.099999994, y: 1.05}
+      - {x: -0.13, y: 0.93}
+      - {x: -0.22, y: 0.89}
+      - {x: -0.32999998, y: 0.76}
+      - {x: -0.35, y: 0.59999996}
+      - {x: -0.24, y: 0.44}
+      - {x: -0.45999998, y: 0.35}
+      - {x: -0.63, y: 0.07}
+      - {x: -0.61, y: -0.089999996}
+      - {x: -0.48999998, y: -0.17}
+      - {x: -0.41, y: -0.22}
+      - {x: -0.48, y: -0.48999998}
+      - {x: -0.45999998, y: -0.78999996}
+      - {x: -0.51164246, y: -0.70199966}
+      - {x: -0.5597992, y: -0.75621796}
+      - {x: -0.55979156, y: -0.76943207}
+      - {x: 0.0079422, y: -1.1900635}
+      - {x: -0.2966385, y: -0.63054657}
+      - {x: -0.5120621, y: -0.69506454}
+      - {x: -0.5425186, y: -0.78068924}
 --- !u!61 &61985729169680962
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -571,6 +652,7 @@ MonoBehaviour:
   width: 6
   height: 10
   maxDistance: 100
+  bearDamage: 10
   deathEffect: {fileID: 156964, guid: 15ff87b027731ae4cbf07bb092fba046, type: 2}
 --- !u!120 &120046030069180642
 LineRenderer:
