@@ -437,7 +437,8 @@ namespace Algorithms
 							return null;
 						}
 
-						if (numberOfTries >= 50) {
+						//Setting number of tries to 0
+						if (numberOfTries >= 0) {
 							mStopped = true;
 							return null;
 						} else {
