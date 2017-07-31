@@ -62,6 +62,15 @@ public class Rocket : MonoBehaviour, IProjectile {
 		}
 	}
 
+	//This is only to destroy itself if it hits a player bullet (Very inaccurately called "Rocket")
+	void OnCollisionEnter2D (Collision2D col) 
+	{
+		if(col.gameObject.tag.Equals("Rocket")) {
+			Instantiate (explosionEffect, this.transform.position, Quaternion.identity);
+			Destroy (this.gameObject);
+		}
+	}
+
 	public void DestroyMapTileRadiusAlgorithm(Level level, int centerX, int centerY, int radius)
 	{
 		//This is an implementation of Midpoint Circle Algorithm here: http://rosettacode.org/wiki/Bitmap/Midpoint_circle_algorithm

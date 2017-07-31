@@ -38,6 +38,9 @@ public class bullet : MonoBehaviour, IProjectile {
 			Debug.Log(col.gameObject.GetComponent<HealthController>().health);
 			col.gameObject.GetComponent<HealthController>().takeDamage(1);
 		}
+		if(col.gameObject.tag.Equals("EnemyBullet")) {
+			Destroy (this.gameObject);
+		}
 	}
 
 	public void OnMapTileHit (MapTile mapTile) {

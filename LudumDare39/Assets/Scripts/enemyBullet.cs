@@ -35,6 +35,10 @@ public class enemyBullet : MonoBehaviour, IProjectile {
 		if(col.gameObject.GetComponent<Unit>() != null) {
 			col.gameObject.GetComponent<Unit>().playerHealthChange(-damageToPlayer);
 		}
+		if(col.gameObject.tag.Equals("Rocket")) {
+			Instantiate (explosion, this.transform.position, Quaternion.identity);
+			Destroy (this.gameObject);
+		}
 	}
 
 	public void OnMapTileHit (MapTile mapTile) {
