@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PersistentGameObject : MonoBehaviour {
 
-	private int playerLevel = 1;
-	private int playerWeapon = 0;
+	public int playerLevel = 1;
+	public int playerWeapon = 0;
 
 	private static PersistentGameObject _instance;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		//DontDestroyOnLoad(transform.gameObject);
 
 		//if we don't have an [_instance] set yet
