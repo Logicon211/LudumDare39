@@ -50,7 +50,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14, y: 146, z: 0}
+  m_LocalPosition: {x: 11.5, y: 144.9, z: 0}
   m_LocalScale: {x: 2.3452332, y: 2.3452332, z: 2.3452332}
   m_Children:
   - {fileID: 4995715914518970}
@@ -160,7 +160,7 @@ MonoBehaviour:
   playerEnergy: 100
   energySlider: {fileID: 0}
   healthSlider: {fileID: 0}
-  energyDepletionRate: 0.01
+  energyDepletionRate: 0.02
   width: 3
   height: 9
   groundTimer: 0
@@ -962,7 +962,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1282,7 +1282,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1132176637
+  randomSeed: 1441813867
   InitialModule:
     serializedVersion: 3
     enabled: 1
