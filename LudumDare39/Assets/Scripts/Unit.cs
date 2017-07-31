@@ -707,13 +707,13 @@ public class Unit : MonoBehaviour, IDamagable {
         {
            // if (energySlider.gameObject.GetComponent<ParticleSystem>().enabled == false)
            // {
-                energySlider.gameObject.GetComponent<ParticleSystem>().enableEmission = true;
+                energySlider.gameObject.GetComponentInChildren<ParticleSystem>().enableEmission = true;
            // }
-            energySlider.gameObject.GetComponent<ParticleSystem>().emissionRate = ((playerEnergy - 100) / 7);
+            energySlider.gameObject.GetComponentInChildren<ParticleSystem>().emissionRate = ((playerEnergy - 100) / 7);
         }
         else if (playerEnergy < 100 && inBossFight == true)
         {
-            energySlider.gameObject.GetComponent<ParticleSystem>().enableEmission = false;
+            energySlider.gameObject.GetComponentInChildren<ParticleSystem>().enableEmission = false;
         }
 
         energySlider.value = playerEnergy;
