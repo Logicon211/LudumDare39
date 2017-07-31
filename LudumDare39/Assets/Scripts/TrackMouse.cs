@@ -159,7 +159,7 @@ public class TrackMouse : MonoBehaviour {
 				projectileLaunched6.GetComponent<Rigidbody2D> ().velocity = projectileLaunched6.transform.right * (velocity + Random.Range (-2, 2));
 				projectileLaunched7.GetComponent<Rigidbody2D> ().velocity = projectileLaunched7.transform.right * (velocity + Random.Range (-2, 2));
 				onCooldown = true;
-				cooldown = 0.5f;
+				cooldown = 0.8f;
 
 
 			} else if (weapon == 3) {

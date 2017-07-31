@@ -93,8 +93,8 @@ public class Spawner : MonoBehaviour {
 
 				if (ampUpTime > 0f) {
 					spawnTime -= ampUpTime;
-					if (spawnTime < 3f) {
-						spawnTime = 3f;
+					if (spawnTime < 6f) {
+						spawnTime = 6f;
 					}
 				}
 			}
