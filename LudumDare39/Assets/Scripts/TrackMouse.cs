@@ -60,15 +60,7 @@ public class TrackMouse : MonoBehaviour {
 			}
 		}
 
-		if (onCooldown) {
-			cooldownTimer += Time.fixedDeltaTime;
-			if (cooldownTimer > cooldown) {
-				onCooldown = false;
-				cooldownTimer = 0f;
-			}
-		} else {
-			cooldownTimer = 0f;
-		}
+
 
 
 		if (Input.GetMouseButton (0) && !onCooldown) {
@@ -100,7 +92,7 @@ public class TrackMouse : MonoBehaviour {
 				projectileLaunched2.GetComponent<Rigidbody2D> ().velocity = projectileLaunched2.transform.right * (velocity + Random.Range (-2, 2));
 				projectileLaunched3.GetComponent<Rigidbody2D> ().velocity = projectileLaunched3.transform.right * (velocity + Random.Range (-2, 2));
 				onCooldown = true;
-				cooldown = 0.6f;
+				cooldown = 1f;
 
 			} else if (weapon == 1) {
 				anim.SetBool ("shooting", true);
@@ -118,7 +110,7 @@ public class TrackMouse : MonoBehaviour {
 				projectileLaunched.transform.Rotate (0, 0, Random.Range (-5, 5));
 				projectileLaunched.GetComponent<Rigidbody2D> ().velocity = projectileLaunched.transform.right * velocity;
 				onCooldown = true;
-				cooldown = 0.25f;
+				cooldown = 0.3f;
 			} else if (weapon == 2) {
 				anim.SetTrigger ("Shoot");
 
@@ -228,19 +220,6 @@ public class TrackMouse : MonoBehaviour {
 				GameObject projectileLaunched8 = null;
 				GameObject projectileLaunched9 = null;
 
-				if (faceRight) {
-					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched4 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched5 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched6 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched7 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched8 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched9 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-				} else {
-					Vector3 posit = transform.localPosition;
-					posit = new Vector3 (-posit.x, posit.y, posit.z);
 					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
 					projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
 					projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
@@ -251,7 +230,6 @@ public class TrackMouse : MonoBehaviour {
 					projectileLaunched8 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
 					projectileLaunched9 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
 
-				}
 				projectileLaunched.transform.Rotate (0, 0, Random.Range (-15, 15));
 				projectileLaunched2.transform.Rotate (0, 0, Random.Range (-15, 15));
 				projectileLaunched3.transform.Rotate (0, 0, Random.Range (-15, 15));
@@ -271,7 +249,7 @@ public class TrackMouse : MonoBehaviour {
 				projectileLaunched8.GetComponent<Rigidbody2D> ().velocity = projectileLaunched8.transform.right * (velocity + Random.Range (-2, 2));
 				projectileLaunched9.GetComponent<Rigidbody2D> ().velocity = projectileLaunched9.transform.right * (velocity + Random.Range (-2, 2));
 				onCooldown = true;
-				cooldown = 0.3f;
+				cooldown = 0.6f;
 				Unit scriptin = playerIn.GetComponent<Unit> ();
 				scriptin.playerEnergyChange (-10f);
 
@@ -281,18 +259,9 @@ public class TrackMouse : MonoBehaviour {
 				GameObject projectileLaunched2 = null;
 				GameObject projectileLaunched3 = null;
 
-				if (faceRight) {
-					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-
-				} else {
-					Vector3 posit = transform.localPosition;
-					posit = new Vector3 (-posit.x, posit.y, posit.z);
-					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-				}
+				projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
 
 				projectileLaunched.transform.Rotate (0, 0, Random.Range (-5, 5));
 				projectileLaunched2.transform.Rotate (0, 0, Random.Range (-5, 5));
@@ -330,54 +299,29 @@ public class TrackMouse : MonoBehaviour {
 				GameObject projectileLaunched20 = null;
 				GameObject projectileLaunched21 = null;
 
-				if (faceRight) {
-					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched4 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched5 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched6 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched7 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched8 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched9 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched10 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched11 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched12 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched13 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched14 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched15 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched16 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched17 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched18 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched19 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched20 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched21 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+		
+				projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched4 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched5 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched6 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched7 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched8 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched9 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched10 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched11 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched12 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched13 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched14 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched15 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched16 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched17 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched18 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched19 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched20 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched21 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
 
-				} else {
-					Vector3 posit = transform.localPosition;
-					posit = new Vector3 (-posit.x, posit.y, posit.z);
-					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched4 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched5 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched6 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched7 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched8 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched9 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched10 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched11 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched12 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched13 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched14 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched15 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched16 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched17 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched18 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched19 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched20 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched21 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-				}
 				projectileLaunched.transform.Rotate (0, 0, Random.Range (-15, 15));
 				projectileLaunched2.transform.Rotate (0, 0, Random.Range (-15, 15));
 				projectileLaunched3.transform.Rotate (0, 0, Random.Range (-15, 15));
@@ -431,18 +375,11 @@ public class TrackMouse : MonoBehaviour {
 				GameObject projectileLaunched2 = null;
 				GameObject projectileLaunched3 = null;
 
-				if (faceRight) {
-					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+		
+				projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
+				projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
 
-				} else {
-					Vector3 posit = transform.localPosition;
-					posit = new Vector3 (-posit.x, posit.y, posit.z);
-					projectileLaunched = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched2 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-					projectileLaunched3 = Instantiate (projectile, barrel.position, actualRotate) as GameObject;
-				}
 
 				projectileLaunched.transform.Rotate (0, 0, Random.Range (-5, 5));
 				projectileLaunched2.transform.Rotate (0, 0, Random.Range (-5, 5));
@@ -462,18 +399,9 @@ public class TrackMouse : MonoBehaviour {
 				GameObject projectileLaunched2 = null;
 				GameObject projectileLaunched3 = null;
 
-				if (faceRight) {
-					projectileLaunched = Instantiate (Rocket, barrel.position, actualRotate) as GameObject;
-					projectileLaunched2 = Instantiate (Rocket, barrel.position, actualRotate) as GameObject;
-					projectileLaunched3 = Instantiate (Rocket, barrel.position, actualRotate) as GameObject;
-
-				} else {
-					Vector3 posit = transform.localPosition;
-					posit = new Vector3 (-posit.x, posit.y, posit.z);
-					projectileLaunched = Instantiate (Rocket, barrel.position, actualRotate) as GameObject;
-					projectileLaunched2= Instantiate (Rocket, barrel.position, actualRotate) as GameObject;
-					projectileLaunched3 = Instantiate (Rocket, barrel.position, actualRotate) as GameObject;
-				}
+				projectileLaunched = Instantiate (Rocket, barrel.position, actualRotate) as GameObject;
+				projectileLaunched2= Instantiate (Rocket, barrel.position, actualRotate) as GameObject;
+				projectileLaunched3 = Instantiate (Rocket, barrel.position, actualRotate) as GameObject;
 
 				projectileLaunched.transform.Rotate (0, 0, Random.Range (-7, 7));
 				projectileLaunched2.transform.Rotate (0, 0, Random.Range (-7, 7));
@@ -490,9 +418,6 @@ public class TrackMouse : MonoBehaviour {
 			gunAudioSource.PlayOneShot (gunSounds [weapon]);
 
 
-
-
-
 		}
 
 		else if(!Input.GetMouseButton (0) && !Input.GetMouseButton (1) ) {
@@ -505,6 +430,17 @@ public class TrackMouse : MonoBehaviour {
 		//if(!(transform.parent.GetComponent<Unit>()).facingRight) {
 		//	Flip();
 		//}
+
+		if (onCooldown) {
+			cooldownTimer += Time.fixedDeltaTime;
+			if (cooldownTimer > cooldown) {
+				onCooldown = false;
+				cooldownTimer = 0f;
+			}
+		} else {
+			cooldownTimer = 0f;
+		}
+
 	}
 
 	//Used for when the tracked object goes past 90 or -90 degrees so we flip it vertically so it's no longer upside down
