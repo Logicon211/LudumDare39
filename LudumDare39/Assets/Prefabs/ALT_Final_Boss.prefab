@@ -223,7 +223,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4314271832780326}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -6.151312}
 --- !u!4 &4118403458471230
 Transform:
   m_ObjectHideFlags: 1
@@ -236,7 +236,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4314271832780326}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -19.3538}
 --- !u!4 &4283380319375986
 Transform:
   m_ObjectHideFlags: 1
@@ -250,7 +250,7 @@ Transform:
   - {fileID: 4750035050537660}
   m_Father: {fileID: 4314271832780326}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -12.136414}
 --- !u!4 &4293364049199688
 Transform:
   m_ObjectHideFlags: 1
@@ -282,7 +282,7 @@ Transform:
   - {fileID: 4503337873914176}
   m_Father: {fileID: 4492081289404148}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.651014}
 --- !u!4 &4492081289404148
 Transform:
   m_ObjectHideFlags: 1
@@ -350,7 +350,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4314271832780326}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.9566236}
 --- !u!4 &4742086639036910
 Transform:
   m_ObjectHideFlags: 1
@@ -364,7 +364,7 @@ Transform:
   - {fileID: 4570725014554050}
   m_Father: {fileID: 4314271832780326}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30.12455}
 --- !u!4 &4750035050537660
 Transform:
   m_ObjectHideFlags: 1
@@ -377,7 +377,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4283380319375986}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -34.611668}
 --- !u!61 &61299696263587330
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -415,7 +415,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5791266, y: 0.35699648}
+  m_Offset: {x: 0.84059525, y: 0.56943744}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.1999344, y: 0.3080664}
@@ -426,7 +426,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9299998, y: 1.86}
+  m_Size: {x: 1.4070625, y: 1.4351181}
   m_EdgeRadius: 0
 --- !u!82 &82043847717502842
 AudioSource:

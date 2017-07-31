@@ -15,6 +15,7 @@ public class bearController : MonoBehaviour, IDamagable {
 	//private float maxVertHSpeed = 20f;
 	private bool facingRight = true;
 	private float moveXInput;
+	private bool dead;
 
 	public GameObject HealthPickup;
 	public GameObject EnergyPickup;
@@ -90,6 +91,7 @@ public class bearController : MonoBehaviour, IDamagable {
 	}
 
 	void Start () {
+		dead = false;
 		GameObject child = transform.Find("RunningSound").gameObject;
 		runningSound = child.GetComponent<AudioSource>();
 		GameObject child2 = transform.Find("PunchNoise").gameObject;
@@ -730,17 +732,21 @@ public class bearController : MonoBehaviour, IDamagable {
 	public void damage(int damage) {
 		bearVitality -= damage;
 		if(bearVitality < 0){
+			
 			Instantiate (deathEffect, this.transform.position, Quaternion.identity);
 			float deathSpawn = UnityEngine.Random.Range (0, 15);
-
-			if (deathSpawn < 1) {
-				Debug.Log ("SPAWN HEALTH");
-				Instantiate (HealthPickup, this.transform.position, Quaternion.identity);
-			} else if (deathSpawn < 2) {
-				Instantiate (EnergyPickup, this.transform.position, Quaternion.identity);
-				Debug.Log ("SPAWN ENERGY");
+			if (!dead) {
+				if (deathSpawn < 1) {
+					dead = true;
+					Debug.Log ("SPAWN HEALTH");
+					Instantiate (HealthPickup, this.transform.position, Quaternion.identity);
+				} else if (deathSpawn < 2) {
+					dead = true;
+					Instantiate (EnergyPickup, this.transform.position, Quaternion.identity);
+					Debug.Log ("SPAWN ENERGY");
+				}
+				Destroy (this.gameObject);
 			}
-			Destroy (this.gameObject);
 		}
 	}
 

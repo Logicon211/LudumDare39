@@ -56,7 +56,7 @@ public class OrcBoss: MonoBehaviour, IDamagable
         /*If not in an attack animation and player is in range, start one*/
 			if (!this.animator.GetCurrentAnimatorStateInfo (0).IsName ("attack") && playerDist < attackRange && 
             (((player.transform.position.x < this.transform.position.x) && lookRight == true) || ((player.transform.position.x > this.transform.position.x) && lookRight == false))) {
-                speed = 0.0f;
+                speed = 1f;
 				animator.SetTrigger ("attack");
             swingNoise.Play();
 			}
@@ -114,16 +114,5 @@ public class OrcBoss: MonoBehaviour, IDamagable
 			Destroy (this.gameObject);
 		}*/
 	}
-
-	void OnCollisionEnter2D(Collision2D col) {
-		if (col.gameObject.tag == "Rocket") {
-			IProjectile projectile = (IProjectile)col.gameObject.GetComponent (typeof(IProjectile));
-			if (projectile != null) {
-				projectile.OnActorHit ();
-				//damage (projectile.getDamageValue ());
-			}
-	}
-
 	          
-}
 }
