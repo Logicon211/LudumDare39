@@ -1,0 +1,59 @@
+Music
+	-Boss Intro
+		-Kevin Macleod, Take the Lead
+	-Boss Fight
+		-Kevin Macleod, Exhilirate
+	(Are we using another Macleod song? Big Rock maybe?)
+		
+
+
+
+Unity Asset Store Action SFX Voice
+	-Male_death
+	-Male_hurt
+	-Male_jump
+	-Male_land
+	-Male_Nooo
+	-Punch_03
+
+Unity Asset Store Futuristic Weapon Set
+	-explosion_bazooka
+	-shot_bazooka
+
+Unity Asset Store Fog Of War Gun Sound FX
+	-they_shoot
+	-shoot_em_up
+	-big_one
+	-cocked
+	-hi_action
+
+Unity Asset Store PostApocalypseGunsDemo
+	-Minigun_loop
+
+https://www.partnersinrhyme.com/soundfx/bearsounds.shtml
+	-bear
+
+https://www.1001freedownloads.com/free-clipart/toxic-nuclear-barrel
+	-nuclear barrel clipart
+
+Cartoon Hand Drawn Weapons and Backgrounds
+	-mine
+	-shotgun
+
+http://piq.codeus.net/picture/250211/basic_explosive_barrel_
+	-explosive barrel
+
+
+Unity Asset Store Pixel Art Basic Plataform Pack
+	-Basic
+	-Basic4
+
+Unity Asset Store Pixel Texture Pack add-on for isometric shooter
+	-BluishWall
+	-ConcreteDarkWall
+	-HardenedWall
+	-RadiationItem
+	-SimpleWindow
+
+https://opengameart.org/content/tileable-interior-mine-background
+	-Mine background
